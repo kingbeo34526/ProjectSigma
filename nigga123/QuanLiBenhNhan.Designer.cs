@@ -85,7 +85,6 @@
             this.TxtTimKiem.Name = "TxtTimKiem";
             this.TxtTimKiem.Size = new System.Drawing.Size(117, 30);
             this.TxtTimKiem.TabIndex = 39;
-            this.TxtTimKiem.Text = "Tên/CCCD";
             this.TxtTimKiem.TextChanged += new System.EventHandler(this.TxtTimKiem_TextChanged);
             // 
             // NutThoat

@@ -24,6 +24,19 @@ namespace nigga123
         {
             LoadThuoc();
             LoadDonViThuoc();
+            DgvThuoc.Columns["MaThuoc"].HeaderText = "Mã Thuốc";
+            DgvThuoc.Columns["TenThuoc"].HeaderText = "Tên Thuốc";
+            DgvThuoc.Columns["SoLuong"].HeaderText = "Số Lượng";
+            DgvThuoc.Columns["Gia"].HeaderText = "Giá";
+            DgvThuoc.Columns["DonViThuoc"].HeaderText = "Đơn Vị";
+            DgvThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
+            DgvThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
+            DgvThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft; // Căn lề trái cho nội dung
+            DgvThuoc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells; // Hàng tự động điều chỉnh kích thước theo nội dung
+            DgvThuoc.AllowUserToResizeRows = false; // Không cho phép resize dòng
+            DgvThuoc.AllowUserToResizeColumns = true; // Cho phép resize cột
+            DgvThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
+            DgvThuoc.MultiSelect = false; // Không cho phép chọn nhiều dòng
         }
         private void LoadThuoc(string keyword = "")
         {

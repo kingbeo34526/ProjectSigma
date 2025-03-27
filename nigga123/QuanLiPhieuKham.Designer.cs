@@ -128,6 +128,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuanLiPhieuKham";
             this.Text = "Quản lí phiếu khám";
+            this.Load += new System.EventHandler(this.QuanLiPhieuKham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvPhieuKham)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

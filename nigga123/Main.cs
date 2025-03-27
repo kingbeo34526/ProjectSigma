@@ -127,7 +127,7 @@ namespace nigga123
 
         private void phiếuKhámBệnhToolStripMenuItem_Click(object sender, EventArgs e) // Quản lí phiếu khám bệnh
         {
-            QuanLiPhieuKham pkb = new QuanLiPhieuKham();
+            QuanLiPhieuKham pkb = new QuanLiPhieuKham(quyen);
             pkb.MdiParent = this;
             pkb.Show();
         }

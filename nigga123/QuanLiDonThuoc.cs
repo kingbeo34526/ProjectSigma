@@ -28,6 +28,22 @@ namespace nigga123
             TxtHoSo.Text = maHoSo.ToString();
             TxtMaBN.Text = BenhNhanBUS.LayTenBenhNhan(maBenhNhan);
             LoadDanhSachDonThuoc();
+            DgvChiTietDonThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
+            DgvChiTietDonThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
+            DgvChiTietDonThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft; // Căn lề trái cho nội dung
+            DgvChiTietDonThuoc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells; // Hàng tự động điều chỉnh kích thước theo nội dung
+            DgvChiTietDonThuoc.AllowUserToResizeRows = false; // Không cho phép resize dòng
+            DgvChiTietDonThuoc.AllowUserToResizeColumns = true; // Cho phép resize cột
+            DgvChiTietDonThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
+            DgvChiTietDonThuoc.MultiSelect = false; // Không cho phép chọn nhiều dòng
+            DgvDonThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
+            DgvDonThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
+            DgvDonThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft; // Căn lề trái cho nội dung
+            DgvDonThuoc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells; // Hàng tự động điều chỉnh kích thước theo nội dung
+            DgvDonThuoc.AllowUserToResizeRows = false; // Không cho phép resize dòng
+            DgvDonThuoc.AllowUserToResizeColumns = true; // Cho phép resize cột
+            DgvDonThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
+            DgvDonThuoc.MultiSelect = false; // Không cho phép chọn nhiều dòng
         }
         private void LoadDanhSachDonThuoc()
         {

@@ -38,17 +38,17 @@ namespace BUS
 
             if (nvDAL.TaoTaiKhoan(ten, tenDangNhap, email, phanQuyen, matKhauMaHoa))
             {
-                string subject = "Thông tin tài khoản mới - Phòng khám SigmaMales";
+                string subject = "Thông tin tài khoản mới - Phòng khám Sigma";
                 string body = $@"
                 <html>
                 <body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333;'>
                     <h2 style='color: #28a745;'>Tài khoản của bạn đã được tạo thành công!</h2>
                     <p>Chào <strong>{ten}</strong>,</p>
-                    <p>Chúng tôi đã tạo một tài khoản mới cho bạn tại <strong>Phòng khám SigmaMales</strong>.</p>
+                    <p>Chúng tôi đã tạo một tài khoản mới cho bạn tại <strong>Phòng khám Sigma</strong>.</p>
                     <p><strong>Tên đăng nhập:</strong> {tenDangNhap}</p>
                     <p><strong>Mật khẩu:</strong> <span style='color: #d9534f; font-weight: bold;'>{matKhau}</span></p>
                     <p>Vui lòng đăng nhập và <strong>đổi mật khẩu</strong> ngay để bảo vệ tài khoản.</p>
-                    <p>Trân trọng,<br><strong>Phòng khám SigmaMales</strong></p>
+                    <p>Trân trọng,<br><strong>Phòng khám Sigma</strong></p>
                 </body>
                 </html>";
 
@@ -135,7 +135,7 @@ namespace BUS
 
             if (nvDAL.CapNhatMatKhau(nhanVien["TenDangNhap"].ToString(), matKhauHash))
             {
-                string subject = "Khôi phục mật khẩu - Phòng khám ABC";
+                string subject = "Khôi phục mật khẩu - Phòng khám Sigma";
                 string body = $@"
                 <html>
                 <body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333;'>
@@ -145,7 +145,7 @@ namespace BUS
                     <p><strong>Mật khẩu mới của bạn:</strong> <span style='color: #d9534f; font-weight: bold;'>{matKhauMoi}</span></p>
                     <p>Vui lòng đăng nhập và <strong>đổi mật khẩu</strong> ngay để đảm bảo an toàn tài khoản.</p>
                     <p>Nếu bạn không yêu cầu khôi phục mật khẩu, vui lòng bỏ qua email này.</p>
-                    <p>Trân trọng,<br><strong>Phòng khám ABC</strong></p>
+                    <p>Trân trọng,<br><strong>Phòng khám Sigma</strong></p>
                 </body>
                 </html>";
 

@@ -14,7 +14,8 @@ namespace nigga123
 {
     public partial class QuanLiPhieuKham : Form
     {
-        public QuanLiPhieuKham()
+        private int PhanQuyenNguoiDung = 0; // Lưu quyền nhân viên hiện tại
+        public QuanLiPhieuKham(int phanQuyen)
         {
             InitializeComponent();
             LoadHoSo();
@@ -22,7 +23,7 @@ namespace nigga123
             NutDonThuoc.Enabled = false; 
             NutXem.Enabled = false;
             DgvPhieuKham.CellFormatting += DgvPhieuKham_CellFormatting;
-
+            PhanQuyenNguoiDung = phanQuyen; // Nhận quyền từ form đăng nhập hoặc main
         }
         private void LoadHoSo()
         {
@@ -38,6 +39,7 @@ namespace nigga123
         }
         private void NutLapHS_Click(object sender, EventArgs e)
         {
+
             QuanLiHoSoBN form = new QuanLiHoSoBN();
             form.MdiParent = this.MdiParent; // Đặt Form Chính làm MDI Parent
             form.Show();
@@ -46,6 +48,7 @@ namespace nigga123
 
         private void NutXem_Click(object sender, EventArgs e)
         {
+
             if (DgvPhieuKham.SelectedRows.Count > 0)
             {
                 int maHoSo = Convert.ToInt32(DgvPhieuKham.SelectedRows[0].Cells["MaHoSo"].Value);
@@ -93,6 +96,12 @@ namespace nigga123
 
         private void NutDonThuoc_Click(object sender, EventArgs e)
         {
+            if (PhanQuyenNguoiDung != 2) // Nếu không phải lễ tân
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào đơn thuốc!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (DgvPhieuKham.SelectedRows.Count > 0)
             {
                 int maHoSo = Convert.ToInt32(DgvPhieuKham.SelectedRows[0].Cells["MaHoSo"].Value);
@@ -112,5 +121,16 @@ namespace nigga123
             LoadHoSo();
         }
 
+        private void QuanLiPhieuKham_Load(object sender, EventArgs e)
+        {
+            DgvPhieuKham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
+            DgvPhieuKham.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
+            DgvPhieuKham.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft; // Căn lề trái cho nội dung
+            DgvPhieuKham.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells; // Hàng tự động điều chỉnh kích thước theo nội dung
+            DgvPhieuKham.AllowUserToResizeRows = false; // Không cho phép resize dòng
+            DgvPhieuKham.AllowUserToResizeColumns = true; // Cho phép resize cột
+            DgvPhieuKham.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
+            DgvPhieuKham.MultiSelect = false; // Không cho phép chọn nhiều dòng
+        }
     }
 }

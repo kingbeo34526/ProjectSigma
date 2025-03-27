@@ -18,6 +18,66 @@ namespace nigga123
         public DangNhap()
         {
             InitializeComponent();
+            CustomizeUI();
+        }
+        private void CustomizeUI()
+        {
+            // Căn giữa form
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.BackColor = Color.FromArgb(240, 240, 240); // Màu nền nhẹ
+
+            // Thiết lập Font chữ
+            Font font = new Font("Segoe UI", 10F, FontStyle.Regular);
+
+            // Label tiêu đề
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label1.ForeColor = Color.Black;
+
+            // TextBox Username
+            Txb_Username.Font = font;
+            Txb_Username.BorderStyle = BorderStyle.FixedSingle;
+            Txb_Username.BackColor = Color.White;
+            Txb_Username.ForeColor = Color.Black;
+            //Txb_Username.Width = 250;
+            //Txb_Username.Height = 35;
+
+            // TextBox Password
+            Txb_Password.Font = font;
+            Txb_Password.BorderStyle = BorderStyle.FixedSingle;
+            Txb_Password.BackColor = Color.White;
+            Txb_Password.ForeColor = Color.Black;
+            //Txb_Password.Width = 250;
+            //Txb_Password.Height = 35;
+            Txb_Password.UseSystemPasswordChar = true; // Ẩn password
+
+            // Checkbox "Ghi nhớ đăng nhập"
+            GhiNhoMatKhau.Font = font;
+            GhiNhoMatKhau.ForeColor = Color.Black;
+
+            // Nút Đăng nhập
+            NutDangNhap.Font = font;
+            NutDangNhap.BackColor = Color.FromArgb(52, 152, 219); // Xanh dương
+            NutDangNhap.ForeColor = Color.White;
+            NutDangNhap.FlatStyle = FlatStyle.Flat;
+            NutDangNhap.FlatAppearance.BorderSize = 0;
+            //NutDangNhap.Width = 120;
+            //NutDangNhap.Height = 40;
+            NutDangNhap.Cursor = Cursors.Hand;
+            NutDangNhap.MouseEnter += (s, e) => { NutDangNhap.BackColor = Color.FromArgb(41, 128, 185); }; // Hover
+            NutDangNhap.MouseLeave += (s, e) => { NutDangNhap.BackColor = Color.FromArgb(52, 152, 219); };
+
+            // Nút Thoát
+            NutThoat.Font = font;
+            NutThoat.BackColor = Color.FromArgb(231, 76, 60); // Đỏ
+            NutThoat.ForeColor = Color.White;
+            NutThoat.FlatStyle = FlatStyle.Flat;
+            NutThoat.FlatAppearance.BorderSize = 0;
+            //NutThoat.Width = 120;
+            //NutThoat.Height = 40;
+            NutThoat.Cursor = Cursors.Hand;
+            NutThoat.MouseEnter += (s, e) => { NutThoat.BackColor = Color.FromArgb(192, 57, 43); }; // Hover
+            NutThoat.MouseLeave += (s, e) => { NutThoat.BackColor = Color.FromArgb(231, 76, 60); };
         }
         private void DangNhap_Load(object sender, EventArgs e)
         {

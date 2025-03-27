@@ -23,6 +23,15 @@ namespace nigga123
             LoadDanhSachBenhNhan();
             DgvBenhNhan.SelectionChanged += DgvBenhNhan_SelectionChanged;
             this.TxtTimKiem.TextChanged += new System.EventHandler(this.TxtTimKiem_TextChanged);
+            DgvBenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
+            DgvBenhNhan.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
+            DgvBenhNhan.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft; // Căn lề trái cho nội dung
+            DgvBenhNhan.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells; // Hàng tự động điều chỉnh kích thước theo nội dung
+            DgvBenhNhan.AllowUserToResizeRows = false; // Không cho phép resize dòng
+            DgvBenhNhan.AllowUserToResizeColumns = true; // Cho phép resize cột
+            DgvBenhNhan.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
+            DgvBenhNhan.MultiSelect = false; // Không cho phép chọn nhiều dòng
+            DgvBenhNhan.ClearSelection();
         }
         private bool KiemTraThongTin()
         {
@@ -162,7 +171,7 @@ namespace nigga123
         }
         private void TxtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            DgvBenhNhan.DataSource = BenhNhanBUS.TimKiemBenhNhan(DgvBenhNhan.Text);
+            DgvBenhNhan.DataSource = BenhNhanBUS.TimKiemBenhNhan(TxtTimKiem.Text);
         }
         private void DgvBenhNhan_SelectionChanged(object sender, EventArgs e)
         {
@@ -193,9 +202,26 @@ namespace nigga123
         }
         private void NutLamMoi_Click(object sender, EventArgs e)
         {
-            LoadDanhSachBenhNhan();
-        }
+            LoadDanhSachBenhNhan(); // Load lại danh sách bệnh nhân
+            DgvBenhNhan.ClearSelection(); // Bỏ chọn tất cả dòng trong DataGridView
 
+            // Xóa nội dung trong các ô nhập liệu
+            TxtHoVaTen.Clear();
+            TxtSDT.Clear();
+            TxtDiaChi.Clear();
+            TxtCCCD.Clear();
+            TxtTimKiem.Clear();
+
+            // Đặt lại ngày sinh về ngày hiện tại
+            DateSinh.Value = DateTime.Now;
+
+            // Bỏ chọn radio button giới tính
+            RbNam.Checked = false;
+            RbNu.Checked = false;
+
+            // Đưa focus về ô nhập tên bệnh nhân để tiện nhập mới
+            TxtHoVaTen.Focus();
+        }
         private void NutThoat_Click(object sender, EventArgs e)
         {
             this.Close();

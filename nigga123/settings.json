@@ -1,0 +1,5 @@
+{
+  "Database": {
+    "ConnectionString": "Data Source=ALEX\\TRANANHKHOA;Initial Catalog=PhongKham;Integrated Security=True"
+  }
+}

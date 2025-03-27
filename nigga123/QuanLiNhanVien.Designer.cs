@@ -297,6 +297,7 @@ namespace nigga123
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuanLiNhanVien";
             this.Text = "Quản lí nhân viên";
+            this.Load += new System.EventHandler(this.QuanLiNhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvNV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -28,10 +28,16 @@ namespace nigga123
 
             // Gán danh sách vào DataGridView
             DgvNV.DataSource = danhSachNhanVien;
+            // HeaderText
+            DgvNV.Columns["Ten"].HeaderText = "Họ và Tên";
+            DgvNV.Columns["TenDangNhap"].HeaderText = "Tên Đăng Nhập";
+            DgvNV.Columns["Email"].HeaderText = "Email";
+            DgvNV.Columns["MaNV"].HeaderText = "Mã Nhân Viên";
 
             // Ẩn cột PhanQuyen (số) để chỉ hiển thị dạng chữ
             DgvNV.Columns["PhanQuyen"].Visible = false;
             DgvNV.Columns["PhanQuyenHienThi"].HeaderText = "Phân quyền";
+            DgvNV.ClearSelection();
         }
 
 
@@ -130,6 +136,18 @@ namespace nigga123
         private void ButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void QuanLiNhanVien_Load(object sender, EventArgs e)
+        {
+            DgvNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
+            DgvNV.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
+            DgvNV.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft; // Căn lề trái cho nội dung
+            DgvNV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells; // Hàng tự động điều chỉnh kích thước theo nội dung
+            DgvNV.AllowUserToResizeRows = false; // Không cho phép resize dòng
+            DgvNV.AllowUserToResizeColumns = true; // Cho phép resize cột
+            DgvNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
+            DgvNV.MultiSelect = false; // Không cho phép chọn nhiều dòng
         }
     }
 }

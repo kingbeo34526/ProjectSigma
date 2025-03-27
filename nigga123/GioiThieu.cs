@@ -33,9 +33,9 @@ namespace nigga123
             </head>
             <body>
                 <div class='container'>
-                    <h1>Phòng Khám SigmaMale</h1>
+                    <h1>Phòng Khám Sigma</h1>
                     <h2>Sức Khỏe Của Bạn - Sứ Mệnh Của Chúng Tôi</h2>
-                    <p>Phòng khám <strong>SigmaMale</strong> chuyên cung cấp dịch vụ y tế chất lượng cao, đảm bảo sự hài lòng cho bệnh nhân.</p>
+                    <p>Phòng khám <strong>Sigma</strong> chuyên cung cấp dịch vụ y tế chất lượng cao, đảm bảo sự hài lòng cho bệnh nhân.</p>
                     <p>Chúng tôi có đội ngũ bác sĩ chuyên nghiệp, trang thiết bị hiện đại và dịch vụ chăm sóc tận tình.</p>
                     <p>📍 <b>Địa chỉ:</b> 66 Lâm Nhĩ, Tp. Đà Nẵng</p>
                     <p>📞 <b>Liên hệ:</b> 0909 123 456 | ✉️ work.anhkhoa2607@gmail.com</p>
