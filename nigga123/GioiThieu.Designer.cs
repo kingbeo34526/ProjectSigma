@@ -47,6 +47,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.webBrowser1);
             this.Name = "GioiThieu";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giới thiệu";
             this.ResumeLayout(false);

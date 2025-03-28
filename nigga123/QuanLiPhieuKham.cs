@@ -96,7 +96,7 @@ namespace nigga123
 
         private void NutDonThuoc_Click(object sender, EventArgs e)
         {
-            if (PhanQuyenNguoiDung != 2) // Nếu không phải lễ tân
+            if (PhanQuyenNguoiDung != 1 && PhanQuyenNguoiDung != 2) // Nếu không phải lễ tân
             {
                 MessageBox.Show("Bạn không có quyền truy cập vào đơn thuốc!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
