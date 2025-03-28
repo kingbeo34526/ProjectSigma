@@ -59,7 +59,51 @@ namespace nigga123
             DgvThuoc.Columns["SoLuong"].HeaderText = "Số Lượng";
             DgvThuoc.Columns["Gia"].HeaderText = "Giá";
         }
+        private void LoadBenhNhan()
+        {
+            TxtTong.Text = benhNhanBUS.GetTotalBenhNhan().ToString();
+        }
 
+        private void LoadTrangThai()
+        {
+            DataTable dtTrangThai = benhNhanBUS.GetAllTrangThai(); // Lấy danh sách trạng thái từ BUS
+
+            // Thêm "Tất cả" vào danh sách trạng thái
+            DataRow newRow = dtTrangThai.NewRow();
+            newRow["TrangThai"] = "Tất cả";
+            dtTrangThai.Rows.InsertAt(newRow, 0);
+
+            CbTT.DataSource = dtTrangThai;
+            CbTT.DisplayMember = "TrangThai";
+        }
+
+        private void LoadThuoc()
+        {
+            DgvThuoc.DataSource = ThuocBUS.GetAllThuoc();
+            TxtTSLT.Text = thuocBUS.GetTotalThuoc().ToString();
+        }
+        private void DgvThuoc_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (DgvThuoc.Columns[e.ColumnIndex].Name == "DonViThuoc") // Cột cần hiển thị đơn vị
+            {
+                if (e.Value != null)
+                {
+                    switch (e.Value.ToString())
+                    {
+                        case "1":
+                            e.Value = "Viên";
+                            break;
+                        case "2":
+                            e.Value = "Hộp";
+                            break;
+                        case "3":
+                            e.Value = "Chai";
+                            break;
+                    }
+                    e.FormattingApplied = true;
+                }
+            }
+        }
         private void XuatExcel(string filePath, string luaChon)
         {
             try
@@ -99,7 +143,6 @@ namespace nigga123
                 MessageBox.Show("Lỗi khi xuất Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void GhiDuLieuExcel(Excel.Worksheet worksheet, DataGridView dgv)
         {
             for (int i = 0; i < dgv.Columns.Count; i++)
@@ -114,9 +157,6 @@ namespace nigga123
                 }
             }
         }
-
-
-
         private void LoadXuatExcel()
         {
             CbXuat.Items.Add("Bệnh Nhân");
@@ -124,35 +164,11 @@ namespace nigga123
             CbXuat.Items.Add("Cả Hai");
             CbXuat.SelectedIndex = 0; // Mặc định chọn "Bệnh nhân"
         }
-        private void LoadBenhNhan()
-        { 
-            TxtTong.Text = benhNhanBUS.GetTotalBenhNhan().ToString();
-        }
-
-        private void LoadTrangThai()
-        {
-            DataTable dtTrangThai = benhNhanBUS.GetAllTrangThai(); // Lấy danh sách trạng thái từ BUS
-
-            // Thêm "Tất cả" vào danh sách trạng thái
-            DataRow newRow = dtTrangThai.NewRow();
-            newRow["TrangThai"] = "Tất cả";
-            dtTrangThai.Rows.InsertAt(newRow, 0);
-
-            CbTT.DataSource = dtTrangThai;
-            CbTT.DisplayMember = "TrangThai";
-        }
-
-        private void LoadThuoc()
-        {
-            DgvThuoc.DataSource = ThuocBUS.GetAllThuoc();
-            TxtTSLT.Text = thuocBUS.GetTotalThuoc().ToString();
-        }
         private void CbTT_SelectedIndexChanged(object sender, EventArgs e)
         {
             string trangThai = CbTT.Text;
             DgvBN.DataSource = benhNhanBUS.GetBenhNhanByTrangThai(trangThai);
         }
-
         private void NutXuat_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -176,7 +192,6 @@ namespace nigga123
                 e.FormattingApplied = true;
             }
         }
-
         private void NutThoat_Click(object sender, EventArgs e)
         {
             this.Close();

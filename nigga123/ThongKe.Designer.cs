@@ -146,6 +146,7 @@
             this.DgvThuoc.Name = "DgvThuoc";
             this.DgvThuoc.Size = new System.Drawing.Size(756, 357);
             this.DgvThuoc.TabIndex = 1;
+            this.DgvThuoc.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvThuoc_CellFormatting);
             // 
             // CbXuat
             // 
