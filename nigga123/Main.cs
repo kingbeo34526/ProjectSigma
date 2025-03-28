@@ -139,6 +139,13 @@ namespace nigga123
             QuanLiThuoc qlt = new QuanLiThuoc();
             OpenChildForm(qlt);
         }
+        private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GioiThieu gt = new GioiThieu();
+            OpenChildForm(gt);
+            gt.ControlBox = false;
+            gt.FormBorderStyle = FormBorderStyle.None;
+        }
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận",
@@ -147,13 +154,6 @@ namespace nigga123
             {
                 Application.Exit(); // Thoát ứng dụng
             }
-        }
-        private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GioiThieu gt = new GioiThieu();
-            OpenChildForm(gt);
-            gt.ControlBox = false;
-            gt.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }

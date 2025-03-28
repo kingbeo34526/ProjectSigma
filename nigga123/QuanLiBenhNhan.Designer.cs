@@ -90,7 +90,7 @@
             // NutThoat
             // 
             this.NutThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutThoat.Location = new System.Drawing.Point(260, 403);
+            this.NutThoat.Location = new System.Drawing.Point(260, 404);
             this.NutThoat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NutThoat.Name = "NutThoat";
             this.NutThoat.Size = new System.Drawing.Size(75, 22);
