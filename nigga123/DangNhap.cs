@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,73 +21,80 @@ namespace nigga123
             InitializeComponent();
             CustomizeUI();
         }
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeft, int nTop, int nRight, int nBottom, int nWidthEllipse, int nHeightEllipse);
         private void CustomizeUI()
         {
-            // Căn giữa form
+            // Căn giữa form khi mở
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.BackColor = Color.FromArgb(240, 240, 240); // Màu nền nhẹ
+            this.FormBorderStyle = FormBorderStyle.None; // Loại bỏ viền
+            this.BackColor = Color.White; // Nền sáng
+            // Bo góc Form
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width - 1, this.Height - 1, 20, 20));
 
-            // Thiết lập Font chữ
-            Font font = new Font("Segoe UI", 10F, FontStyle.Regular);
-
-            // Label tiêu đề
-            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            // Chỉnh tiêu đề "Đăng nhập"
+            label1.Font = new Font("Poppins", 16F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
+            label1.TextAlign = ContentAlignment.MiddleCenter;
 
-            // TextBox Username
-            Txb_Username.Font = font;
-            Txb_Username.BorderStyle = BorderStyle.FixedSingle;
-            Txb_Username.BackColor = Color.White;
-            Txb_Username.ForeColor = Color.Black;
-            //Txb_Username.Width = 250;
-            //Txb_Username.Height = 35;
-
-            // TextBox Password
-            Txb_Password.Font = font;
-            Txb_Password.BorderStyle = BorderStyle.FixedSingle;
-            Txb_Password.BackColor = Color.White;
-            Txb_Password.ForeColor = Color.Black;
-            //Txb_Password.Width = 250;
-            //Txb_Password.Height = 35;
-            Txb_Password.UseSystemPasswordChar = true; // Ẩn password
-
-            // Checkbox "Ghi nhớ đăng nhập"
-            GhiNhoMatKhau.Font = font;
+            // CheckBox Ghi nhớ
+            GhiNhoMatKhau.Font = new Font("Segoe UI", 10F);
             GhiNhoMatKhau.ForeColor = Color.Black;
 
-            // Nút Đăng nhập
-            NutDangNhap.Font = font;
-            NutDangNhap.BackColor = Color.FromArgb(52, 152, 219); // Xanh dương
-            NutDangNhap.ForeColor = Color.White;
-            NutDangNhap.FlatStyle = FlatStyle.Flat;
-            NutDangNhap.FlatAppearance.BorderSize = 0;
-            //NutDangNhap.Width = 120;
-            //NutDangNhap.Height = 40;
-            NutDangNhap.Cursor = Cursors.Hand;
-            NutDangNhap.MouseEnter += (s, e) => { NutDangNhap.BackColor = Color.FromArgb(41, 128, 185); }; // Hover
-            NutDangNhap.MouseLeave += (s, e) => { NutDangNhap.BackColor = Color.FromArgb(52, 152, 219); };
+            linkLabel1.Font = new Font("Segoe UI", 9F, FontStyle.Underline);
+            linkLabel1.ForeColor = Color.Blue;
+            linkLabel1.Cursor = Cursors.Hand;
+            linkLabel1.AutoSize = true;
 
-            // Nút Thoát
-            NutThoat.Font = font;
-            NutThoat.BackColor = Color.FromArgb(231, 76, 60); // Đỏ
-            NutThoat.ForeColor = Color.White;
-            NutThoat.FlatStyle = FlatStyle.Flat;
-            NutThoat.FlatAppearance.BorderSize = 0;
-            //NutThoat.Width = 120;
-            //NutThoat.Height = 40;
-            NutThoat.Cursor = Cursors.Hand;
-            NutThoat.MouseEnter += (s, e) => { NutThoat.BackColor = Color.FromArgb(192, 57, 43); }; // Hover
-            NutThoat.MouseLeave += (s, e) => { NutThoat.BackColor = Color.FromArgb(231, 76, 60); };
+            // Căn lại "Máy chủ" 
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            label4.ForeColor = Color.Gray;
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            label4.AutoSize = false;
+            label4.Width = this.ClientSize.Width;
+
+            // Cập nhật lại layout
+            this.PerformLayout();
         }
+
         private void DangNhap_Load(object sender, EventArgs e)
         {
+            ConfigBUS.EnsureConfigFileExists();
             if (Properties.Settings.Default.GhiNhoDangNhap)
             {
                 Txb_Username.Text = Properties.Settings.Default.TenDangNhap;
                 Txb_Password.Text = Properties.Settings.Default.MatKhau;
                 GhiNhoMatKhau.Checked = true;
             }
+
+            string connectionString = ConfigBUS.GetConnectionString();
+            string serverInfo = "Không xác định";
+            // Kiểm tra nếu connectionString có chứa "N/A"
+            if (string.IsNullOrEmpty(connectionString) || connectionString.Contains("N/A"))
+            {
+                MessageBox.Show("Cấu hình cơ sở dữ liệu chưa hợp lệ! Vui lòng thiết lập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CauHinhDB cauHinhDB = new CauHinhDB();
+                cauHinhDB.ShowDialog();
+            }
+            if (!string.IsNullOrEmpty(connectionString))
+            {
+                try
+                {
+                    // Tách phần "Data Source=..."
+                    var parts = connectionString.Split(';');
+                    foreach (var part in parts)
+                    {
+                        if (part.Trim().StartsWith("Data Source=", StringComparison.OrdinalIgnoreCase))
+                        {
+                            serverInfo = part.Replace("Data Source=", "").Trim();
+                            break;
+                        }
+                    }
+                }
+                catch { serverInfo = "Lỗi đọc cấu hình"; }
+            }
+
+            label4.Text = "Server: " + serverInfo;
         }
         private void NutDangNhap_Click(object sender, EventArgs e)
         {
@@ -142,6 +150,12 @@ namespace nigga123
         {
             QuenMatKhau qmk = new QuenMatKhau();
             qmk.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CauHinhDB cauHinhDB = new CauHinhDB();
+            cauHinhDB.ShowDialog();
         }
     }
 }

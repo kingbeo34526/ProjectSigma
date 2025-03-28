@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="BenhNhanBUS.cs" />
     <Compile Include="ChiTietDonThuocBUS.cs" />
+    <Compile Include="ConfigBUS.cs" />
     <Compile Include="DonThuocBUS.cs" />
     <Compile Include="HoSoKhamBenhBUS.cs" />
     <Compile Include="NhanVienBUS.cs" />

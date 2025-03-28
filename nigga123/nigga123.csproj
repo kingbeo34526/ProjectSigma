@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CauHinhDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CauHinhDB.Designer.cs">
+      <DependentUpon>CauHinhDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     <Compile Include="ThemDonThuoc.Designer.cs">
       <DependentUpon>ThemDonThuoc.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CauHinhDB.resx">
+      <DependentUpon>CauHinhDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,9 +232,6 @@
       <Project>{5a50721c-b162-4185-bf67-0e564de28b06}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

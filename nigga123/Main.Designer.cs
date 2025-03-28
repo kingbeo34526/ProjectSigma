@@ -99,7 +99,7 @@ namespace nigga123
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(188, 30);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(147, 24);
             this.toolStripMenuItem1.Text = "Đăng xuất";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -110,14 +110,14 @@ namespace nigga123
             this.quyềnHạnToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quyềnHạnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quyềnHạnToolStripMenuItem.Image")));
             this.quyềnHạnToolStripMenuItem.Name = "quyềnHạnToolStripMenuItem";
-            this.quyềnHạnToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.quyềnHạnToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.quyềnHạnToolStripMenuItem.Text = "Quyền hạn";
             // 
             // quảnLíTàiKhoảnToolStripMenuItem
             // 
             this.quảnLíTàiKhoảnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quảnLíTàiKhoảnToolStripMenuItem.Image")));
             this.quảnLíTàiKhoảnToolStripMenuItem.Name = "quảnLíTàiKhoảnToolStripMenuItem";
-            this.quảnLíTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.quảnLíTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.quảnLíTàiKhoảnToolStripMenuItem.Text = "Quản lí tài khoản";
             this.quảnLíTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.quảnLíTàiKhoảnToolStripMenuItem_Click);
             // 
@@ -126,7 +126,7 @@ namespace nigga123
             this.thoátToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.thoátToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thoátToolStripMenuItem.Image")));
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -145,7 +145,7 @@ namespace nigga123
             this.bệnhNhânToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bệnhNhânToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bệnhNhânToolStripMenuItem.Image")));
             this.bệnhNhânToolStripMenuItem.Name = "bệnhNhânToolStripMenuItem";
-            this.bệnhNhânToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.bệnhNhânToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.bệnhNhânToolStripMenuItem.Text = "Quản lý bệnh nhân";
             this.bệnhNhânToolStripMenuItem.Click += new System.EventHandler(this.bệnhNhânToolStripMenuItem_Click);
             // 
@@ -154,7 +154,7 @@ namespace nigga123
             this.phiếuKhámBệnhToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phiếuKhámBệnhToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("phiếuKhámBệnhToolStripMenuItem.Image")));
             this.phiếuKhámBệnhToolStripMenuItem.Name = "phiếuKhámBệnhToolStripMenuItem";
-            this.phiếuKhámBệnhToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.phiếuKhámBệnhToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.phiếuKhámBệnhToolStripMenuItem.Text = "Phiếu khám bệnh";
             this.phiếuKhámBệnhToolStripMenuItem.Click += new System.EventHandler(this.phiếuKhámBệnhToolStripMenuItem_Click);
             // 
@@ -188,7 +188,7 @@ namespace nigga123
             this.LblThongTin.BackColor = System.Drawing.Color.Transparent;
             this.LblThongTin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblThongTin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LblThongTin.Location = new System.Drawing.Point(8, 608);
+            this.LblThongTin.Location = new System.Drawing.Point(11, 604);
             this.LblThongTin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LblThongTin.Name = "LblThongTin";
             this.LblThongTin.Size = new System.Drawing.Size(73, 17);

@@ -6,7 +6,7 @@ namespace DAL
 {
     public class DataProvider
     {
-        private static string connectionString = Config.GetConnectionString();
+        private static string connectionString = ConfigDAL.GetConnectionString();
 
         public static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {

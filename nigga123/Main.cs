@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,6 @@ namespace nigga123
         private Timer timer; // Timer để cập nhật thời gian
         private string quyenText; // Quyền hạn
         private Color quyenColor; // Màu quyền hạn
-
         public Main(string tenDangNhap)
         {
             InitializeComponent();
@@ -73,8 +73,12 @@ namespace nigga123
             TimeSpan thoiGianSuDung = DateTime.Now - thoiGianBatDau;
             string thoiGianSuDungText = $"{thoiGianSuDung.Hours} giờ {thoiGianSuDung.Minutes} phút {thoiGianSuDung.Seconds} giây";
 
-            // Cập nhật Label
+            // LblThongTin
             LblThongTin.Text = $"🕒 {thoiGianHienTai} | ⏳ {thoiGianSuDungText}";
+            LblThongTin.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
+            LblThongTin.TextAlign = ContentAlignment.MiddleCenter;
+            LblThongTin.AutoSize = false;
+            LblThongTin.Width = this.ClientSize.Width;
         }
         private void toolStripMenuItem1_Click(object sender, EventArgs e) // Đăng xuất
         {
@@ -98,47 +102,43 @@ namespace nigga123
         //
         // Chuyển form
         //
+        private void OpenChildForm(Form childForm)
+        {
+            // Kiểm tra xem có form con nào đang mở không
+            foreach (Form frm in this.MdiChildren)
+            {
+                frm.Close(); // Đóng form con cũ
+            }
+
+            // Mở form con mới
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
         private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e) // Đổi mật khẩu
         {
             DoiMatKhau dmk = new DoiMatKhau(tenDangNhap);
-            dmk.MdiParent = this;
-            dmk.Show();
+            OpenChildForm(dmk);
         }
-
         private void quảnLíTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e) // Quản lí tài khoản (Admin)
         {
             QuanLiNhanVien qlnv = new QuanLiNhanVien(tenDangNhap);
-            qlnv.MdiParent = this;
-            qlnv.Show();
+            OpenChildForm(qlnv);
         }
-
-        //private void hồSơBệnhNhânToolStripMenuItem_Click(object sender, EventArgs e) // Quản lí hồ sơ bệnh nhân
-        //{
-        //    QuanLiHoSoBN qlhsbn = new QuanLiHoSoBN();
-        //    qlhsbn.ShowDialog();
-        //}
-
         private void bệnhNhânToolStripMenuItem_Click(object sender, EventArgs e) // Quản lí bệnh nhân
         {
             QuanLiBenhNhan qlbn = new QuanLiBenhNhan();
-            qlbn.MdiParent = this;
-            qlbn.Show();
+            OpenChildForm(qlbn);
         }
-
         private void phiếuKhámBệnhToolStripMenuItem_Click(object sender, EventArgs e) // Quản lí phiếu khám bệnh
         {
             QuanLiPhieuKham pkb = new QuanLiPhieuKham(quyen);
-            pkb.MdiParent = this;
-            pkb.Show();
+            OpenChildForm(pkb);
         }
-
         private void quảnLýThuốcToolStripMenuItem_Click(object sender, EventArgs e) // Quản lí thuốc
         {
             QuanLiThuoc qlt = new QuanLiThuoc();
-            qlt.MdiParent= this;
-            qlt.Show();
+            OpenChildForm(qlt);
         }
-
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận",
@@ -148,19 +148,10 @@ namespace nigga123
                 Application.Exit(); // Thoát ứng dụng
             }
         }
-
-        private void danhSáchĐơnThuốcToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //DanhSachDonThuoc dsdt = new DanhSachDonThuoc();
-            //dsdt.MdiParent = this;
-            //dsdt.Show();
-        }
-
         private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GioiThieu gt = new GioiThieu();
-            gt.MdiParent = this;
-            gt.Show();
+            OpenChildForm(gt);
             gt.ControlBox = false;
             gt.FormBorderStyle = FormBorderStyle.None;
         }

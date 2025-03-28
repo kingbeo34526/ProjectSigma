@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="BenhNhanDAL.cs" />
     <Compile Include="ChiTietDonThuocDAL.cs" />
-    <Compile Include="Config.cs" />
+    <Compile Include="ConfigDAL.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="DonThuocDAL.cs" />
     <Compile Include="HoSoKhamBenhDAL.cs" />
