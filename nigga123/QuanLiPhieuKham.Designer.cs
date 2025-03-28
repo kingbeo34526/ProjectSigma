@@ -35,6 +35,7 @@
             this.NutXem = new System.Windows.Forms.Button();
             this.NutDonThuoc = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPhieuKham)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,30 +43,27 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 427);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(16, 265);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 20);
+            this.label2.Size = new System.Drawing.Size(115, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Lọc theo trạng thái";
             // 
             // DgvPhieuKham
             // 
             this.DgvPhieuKham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvPhieuKham.Location = new System.Drawing.Point(28, 18);
-            this.DgvPhieuKham.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DgvPhieuKham.Location = new System.Drawing.Point(19, 12);
             this.DgvPhieuKham.Name = "DgvPhieuKham";
             this.DgvPhieuKham.RowHeadersWidth = 62;
-            this.DgvPhieuKham.Size = new System.Drawing.Size(1006, 369);
+            this.DgvPhieuKham.Size = new System.Drawing.Size(671, 240);
             this.DgvPhieuKham.TabIndex = 12;
             this.DgvPhieuKham.SelectionChanged += new System.EventHandler(this.DgvPhieuKham_SelectionChanged);
             // 
             // NutLapHS
             // 
-            this.NutLapHS.Location = new System.Drawing.Point(768, 409);
-            this.NutLapHS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NutLapHS.Location = new System.Drawing.Point(696, 115);
             this.NutLapHS.Name = "NutLapHS";
-            this.NutLapHS.Size = new System.Drawing.Size(198, 57);
+            this.NutLapHS.Size = new System.Drawing.Size(132, 39);
             this.NutLapHS.TabIndex = 14;
             this.NutLapHS.Text = "Lập hồ sơ khám bệnh";
             this.NutLapHS.UseVisualStyleBackColor = true;
@@ -74,29 +72,28 @@
             // CbTrangThai
             // 
             this.CbTrangThai.FormattingEnabled = true;
-            this.CbTrangThai.Location = new System.Drawing.Point(199, 424);
+            this.CbTrangThai.Location = new System.Drawing.Point(133, 263);
+            this.CbTrangThai.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CbTrangThai.Name = "CbTrangThai";
-            this.CbTrangThai.Size = new System.Drawing.Size(183, 28);
+            this.CbTrangThai.Size = new System.Drawing.Size(123, 21);
             this.CbTrangThai.TabIndex = 18;
             this.CbTrangThai.SelectedIndexChanged += new System.EventHandler(this.CbTrangThai_SelectedIndexChanged);
             // 
             // NutXem
             // 
-            this.NutXem.Location = new System.Drawing.Point(562, 409);
-            this.NutXem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NutXem.Location = new System.Drawing.Point(696, 72);
             this.NutXem.Name = "NutXem";
-            this.NutXem.Size = new System.Drawing.Size(198, 57);
+            this.NutXem.Size = new System.Drawing.Size(132, 39);
             this.NutXem.TabIndex = 19;
-            this.NutXem.Text = "Xem hồ sơ khám bệnh";
+            this.NutXem.Text = "Xem/Sửa hồ sơ khám bệnh";
             this.NutXem.UseVisualStyleBackColor = true;
             this.NutXem.Click += new System.EventHandler(this.NutXem_Click);
             // 
             // NutDonThuoc
             // 
-            this.NutDonThuoc.Location = new System.Drawing.Point(435, 409);
-            this.NutDonThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NutDonThuoc.Location = new System.Drawing.Point(696, 29);
             this.NutDonThuoc.Name = "NutDonThuoc";
-            this.NutDonThuoc.Size = new System.Drawing.Size(119, 57);
+            this.NutDonThuoc.Size = new System.Drawing.Size(132, 39);
             this.NutDonThuoc.TabIndex = 20;
             this.NutDonThuoc.Text = "Đơn thuốc";
             this.NutDonThuoc.UseVisualStyleBackColor = true;
@@ -104,20 +101,31 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(974, 409);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button1.Location = new System.Drawing.Point(696, 158);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 57);
+            this.button1.Size = new System.Drawing.Size(132, 39);
             this.button1.TabIndex = 21;
-            this.button1.Text = "R";
+            this.button1.Text = "Tải lại";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(696, 201);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(132, 39);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Thoát";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // QuanLiPhieuKham
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 486);
+            this.ClientSize = new System.Drawing.Size(841, 292);
+            this.ControlBox = false;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.NutDonThuoc);
             this.Controls.Add(this.NutXem);
@@ -125,9 +133,8 @@
             this.Controls.Add(this.NutLapHS);
             this.Controls.Add(this.DgvPhieuKham);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuanLiPhieuKham";
-            this.Text = "Quản lí phiếu khám";
+            this.Text = "Quản lí phiếu khám bệnh";
             this.Load += new System.EventHandler(this.QuanLiPhieuKham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvPhieuKham)).EndInit();
             this.ResumeLayout(false);
@@ -143,5 +150,6 @@
         private System.Windows.Forms.Button NutXem;
         private System.Windows.Forms.Button NutDonThuoc;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

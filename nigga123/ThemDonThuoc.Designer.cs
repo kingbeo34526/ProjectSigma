@@ -44,65 +44,58 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 36);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(15, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 20);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Hồ Sơ:";
             // 
             // TxtHoSo
             // 
-            this.TxtHoSo.Location = new System.Drawing.Point(119, 33);
-            this.TxtHoSo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtHoSo.Location = new System.Drawing.Point(79, 21);
             this.TxtHoSo.Name = "TxtHoSo";
             this.TxtHoSo.ReadOnly = true;
-            this.TxtHoSo.Size = new System.Drawing.Size(90, 26);
+            this.TxtHoSo.Size = new System.Drawing.Size(61, 20);
             this.TxtHoSo.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 74);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(9, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 20);
+            this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Chọn thuốc:";
             // 
             // CbThuoc
             // 
             this.CbThuoc.FormattingEnabled = true;
-            this.CbThuoc.Location = new System.Drawing.Point(119, 71);
-            this.CbThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.CbThuoc.Location = new System.Drawing.Point(79, 46);
             this.CbThuoc.Name = "CbThuoc";
-            this.CbThuoc.Size = new System.Drawing.Size(180, 28);
+            this.CbThuoc.Size = new System.Drawing.Size(121, 21);
             this.CbThuoc.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 113);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(21, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 20);
+            this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Số lượng:";
             // 
             // TxtSL
             // 
-            this.TxtSL.Location = new System.Drawing.Point(119, 110);
-            this.TxtSL.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.TxtSL.Location = new System.Drawing.Point(79, 72);
             this.TxtSL.Name = "TxtSL";
-            this.TxtSL.Size = new System.Drawing.Size(73, 26);
+            this.TxtSL.Size = new System.Drawing.Size(50, 20);
             this.TxtSL.TabIndex = 6;
             // 
             // BtnThem
             // 
-            this.BtnThem.Location = new System.Drawing.Point(18, 183);
-            this.BtnThem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnThem.Location = new System.Drawing.Point(12, 119);
             this.BtnThem.Name = "BtnThem";
-            this.BtnThem.Size = new System.Drawing.Size(112, 35);
+            this.BtnThem.Size = new System.Drawing.Size(75, 23);
             this.BtnThem.TabIndex = 7;
             this.BtnThem.Text = "Thêm";
             this.BtnThem.UseVisualStyleBackColor = true;
@@ -110,10 +103,9 @@
             // 
             // BtnXoa
             // 
-            this.BtnXoa.Location = new System.Drawing.Point(140, 183);
-            this.BtnXoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnXoa.Location = new System.Drawing.Point(93, 119);
             this.BtnXoa.Name = "BtnXoa";
-            this.BtnXoa.Size = new System.Drawing.Size(112, 35);
+            this.BtnXoa.Size = new System.Drawing.Size(75, 23);
             this.BtnXoa.TabIndex = 8;
             this.BtnXoa.Text = "Xóa";
             this.BtnXoa.UseVisualStyleBackColor = true;
@@ -121,10 +113,9 @@
             // 
             // BtnThoat
             // 
-            this.BtnThoat.Location = new System.Drawing.Point(261, 183);
-            this.BtnThoat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.BtnThoat.Location = new System.Drawing.Point(174, 119);
             this.BtnThoat.Name = "BtnThoat";
-            this.BtnThoat.Size = new System.Drawing.Size(112, 35);
+            this.BtnThoat.Size = new System.Drawing.Size(75, 23);
             this.BtnThoat.TabIndex = 9;
             this.BtnThoat.Text = "Thoát";
             this.BtnThoat.UseVisualStyleBackColor = true;
@@ -133,18 +124,18 @@
             // DgvCTDT
             // 
             this.DgvCTDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvCTDT.Location = new System.Drawing.Point(387, 14);
-            this.DgvCTDT.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.DgvCTDT.Location = new System.Drawing.Point(258, 9);
             this.DgvCTDT.Name = "DgvCTDT";
             this.DgvCTDT.RowHeadersWidth = 62;
-            this.DgvCTDT.Size = new System.Drawing.Size(360, 206);
+            this.DgvCTDT.Size = new System.Drawing.Size(240, 134);
             this.DgvCTDT.TabIndex = 10;
             // 
             // ThemDonThuoc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 240);
+            this.ClientSize = new System.Drawing.Size(507, 156);
+            this.ControlBox = false;
             this.Controls.Add(this.DgvCTDT);
             this.Controls.Add(this.BtnThoat);
             this.Controls.Add(this.BtnXoa);
@@ -155,7 +146,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtHoSo);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ThemDonThuoc";
             this.Text = "Thêm đơn thuốc";
             this.Load += new System.EventHandler(this.ThemDonThuoc_Load);

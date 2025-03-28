@@ -99,20 +99,6 @@ namespace nigga123
                 MessageBox.Show("Lưu thất bại!");
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //if (maHoSo.HasValue)
-            //{
-            //    DonThuoc form = new DonThuoc(maHoSo.Value);
-            //    form.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng lưu hồ sơ trước khi lập đơn thuốc!");
-            //}
-        }
-
         private void NutThoat_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.Mail;
+using System.Net;
 
 namespace DAL
 {
@@ -94,6 +96,14 @@ namespace DAL
             }
             return dsNhanVien;
         }
+        public string LayEmail(string tenDangNhap)
+        {
+            string query = "SELECT Email FROM NhanVien WHERE TenDangNhap = @TenDangNhap";
+            SqlParameter[] parameters = { new SqlParameter("@TenDangNhap", tenDangNhap) };
+
+            object result = DataProvider.ExecuteScalar(query, parameters);
+            return result?.ToString();
+        }
         //public static bool ThemNhanVien(NhanVienDTO nv)
         //{
         //    string query = "INSERT INTO NhanVien (Ten, TenDangNhap, MatKhau, Email, PhanQuyen) VALUES (@Ten, @TenDangNhap, @MatKhau, @Email, @PhanQuyen)";
@@ -106,6 +116,46 @@ namespace DAL
         //    };
         //    return DataProvider.ExecuteNonQuery(query, parameters) > 0;
         //}
+        public static bool GuiEmailDoiMatKhau(string email)
+        {
+            try
+            {
+                string fromEmail = "work.anhkhoa2607@gmail.com";  // Thay bằng email gửi
+                string fromPassword = "kzop xsnd dkdu mpns";  // Thay bằng mật khẩu ứng dụng
+
+                string subject = "Thông báo đổi mật khẩu - Phòng khám Sigma";
+                string body = $@"
+                <html>
+                <body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333;'>
+                    <h2 style='color: #dc3545;'>Bạn vừa thay đổi mật khẩu!</h2>
+                    <p>Xin chào,</p>
+                    <p>Bạn vừa đổi mật khẩu thành công cho tài khoản của mình tại <strong>Phòng khám Sigma</strong>.</p>
+                    <p>Nếu bạn không thực hiện thay đổi này, vui lòng liên hệ ngay với quản trị viên.</p>
+                    <p>Để bảo vệ tài khoản, không chia sẻ mật khẩu với bất kỳ ai.</p>
+                    <p>Trân trọng,<br><strong>Phòng khám Sigma</strong></p>
+                </body>
+                </html>";
+
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(fromEmail);
+                mail.To.Add(email);
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = true;
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new NetworkCredential(fromEmail, fromPassword);
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static bool SuaNhanVien(NhanVienDTO nv)
         {
             string query = "UPDATE NhanVien SET Ten = @Ten, Email = @Email, PhanQuyen = @PhanQuyen WHERE MaNV = @MaNV";

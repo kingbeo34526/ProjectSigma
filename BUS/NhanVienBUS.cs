@@ -171,6 +171,10 @@ namespace BUS
         {
             return nvDAL.LayMatKhau(tenDangNhap); // Lấy mật khẩu từ database
         }
+        public string LayEmail(string tenDangNhap)
+        {
+            return nvDAL.LayEmail(tenDangNhap); 
+        }
         public bool DoiMatKhau(string tenDangNhap, string matKhauMoi)
         {
             return nvDAL.CapNhatMatKhau(tenDangNhap, matKhauMoi);
@@ -191,7 +195,11 @@ namespace BUS
         {
             return NhanVienDAL.SuaNhanVien(nv);
         }
-
+        public bool GuiEmailDoiMatKhau(string email)
+        {
+            return NhanVienDAL.GuiEmailDoiMatKhau(email);
+        }
+        
         public static bool XoaNhanVien(int maNV)
         {
             return NhanVienDAL.XoaNhanVien(maNV);

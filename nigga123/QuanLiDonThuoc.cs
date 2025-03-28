@@ -36,6 +36,8 @@ namespace nigga123
             DgvChiTietDonThuoc.AllowUserToResizeColumns = true; // Cho phép resize cột
             DgvChiTietDonThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
             DgvChiTietDonThuoc.MultiSelect = false; // Không cho phép chọn nhiều dòng
+
+            
             DgvDonThuoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
             DgvDonThuoc.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
             DgvDonThuoc.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft; // Căn lề trái cho nội dung
@@ -44,6 +46,9 @@ namespace nigga123
             DgvDonThuoc.AllowUserToResizeColumns = true; // Cho phép resize cột
             DgvDonThuoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
             DgvDonThuoc.MultiSelect = false; // Không cho phép chọn nhiều dòng
+            DgvDonThuoc.Columns["MaDonThuoc"].HeaderText = "Mã Đơn Thuốc";
+            DgvDonThuoc.Columns["MaHoSo"].HeaderText = "Mã Hồ Sơ";
+            DgvDonThuoc.Columns["NgayLap"].HeaderText = "Ngày Lập";
         }
         private void LoadDanhSachDonThuoc()
         {
@@ -57,6 +62,11 @@ namespace nigga123
                 int maDonThuoc = Convert.ToInt32(DgvDonThuoc.Rows[e.RowIndex].Cells["MaDonThuoc"].Value);
                 DgvChiTietDonThuoc.DataSource = donThuocBUS.LayChiTietDonThuoc(maDonThuoc);
                 DgvChiTietDonThuoc.Columns["MaChiTiet"].Visible = false; // Ẩn cột MaChiTiet
+                if (DgvChiTietDonThuoc.Columns.Count > 0)
+                {
+                    DgvChiTietDonThuoc.Columns["TenThuoc"].HeaderText = "Tên Thuốc";
+                    DgvChiTietDonThuoc.Columns["SoLuong"].HeaderText = "Số Lượng";
+                }
             }
         }
 

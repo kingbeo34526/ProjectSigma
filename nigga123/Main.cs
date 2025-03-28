@@ -161,6 +161,8 @@ namespace nigga123
             GioiThieu gt = new GioiThieu();
             gt.MdiParent = this;
             gt.Show();
+            gt.ControlBox = false;
+            gt.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }

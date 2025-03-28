@@ -131,6 +131,15 @@ namespace nigga123
             DgvPhieuKham.AllowUserToResizeColumns = true; // Cho phép resize cột
             DgvPhieuKham.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
             DgvPhieuKham.MultiSelect = false; // Không cho phép chọn nhiều dòng
+            DgvPhieuKham.Columns["MaHoSo"].HeaderText = "Mã Hồ Sơ";
+            DgvPhieuKham.Columns["MaBenhNhan"].HeaderText = "Mã Bệnh Nhân";
+            DgvPhieuKham.Columns["HoTen"].HeaderText = "Tên Bệnh Nhân";
+            DgvPhieuKham.Columns["TrangThai"].HeaderText = "Trạng Thái";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
