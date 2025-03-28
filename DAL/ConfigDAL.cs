@@ -28,7 +28,6 @@ namespace DAL
 
             return connectionString;
         }
-        // Hàm kiểm tra và tạo file settings.json nếu chưa có
         public static void EnsureConfigFileExists()
         {
             if (!File.Exists(filePath))

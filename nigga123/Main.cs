@@ -155,5 +155,11 @@ namespace nigga123
                 Application.Exit(); // Thoát ứng dụng
             }
         }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThongKe tk = new ThongKe();
+            OpenChildForm(tk);
+        }
     }
 }

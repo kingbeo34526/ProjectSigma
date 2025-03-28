@@ -15,22 +15,6 @@ namespace BUS
     public class NhanVienBUS
     {
         NhanVienDAL nvDAL = new NhanVienDAL();
-        //
-        // Đăng nhập, tạo tài khoản, quên mật khẩu
-        //
-
-        //public bool TaoTaiKhoan(string ten, string tenDangNhap, string email, int phanQuyen)
-        //{
-        //    string matKhau = TaoMatKhauNgauNhien(); // Tạo mật khẩu ngẫu nhiên
-        //    string matKhauMaHoa = BCrypt.Net.BCrypt.HashPassword(matKhau); // Mã hóa mật khẩu
-
-        //    if (nvDAL.TaoTaiKhoan(ten, tenDangNhap, email, phanQuyen, matKhauMaHoa))
-        //    {
-        //        GuiEmail(email, "Tài khoản mới", $"Mật khẩu của bạn là: {matKhau}");
-        //        return true;
-        //    }
-        //    return false;
-        //}
         public bool TaoTaiKhoan(string ten, string tenDangNhap, string email, int phanQuyen)
         {
             string matKhau = TaoMatKhauNgauNhien(); // Tạo mật khẩu ngẫu nhiên
@@ -57,7 +41,6 @@ namespace BUS
             }
             return false;
         }
-
         public bool DangNhap(string tenDangNhap, string matKhau)
         {
             string matKhauDaLuu = nvDAL.LayMatKhau(tenDangNhap);
@@ -76,25 +59,10 @@ namespace BUS
             int count = (int)DataProvider.ExecuteScalar(query, parameters);
             return count > 0;
         }
-
         private string TaoMatKhauNgauNhien()
         {
             return Guid.NewGuid().ToString().Substring(0, 8);
         }
-        //private void GuiEmail(string emailNhan, string tieuDe, string noiDung)
-        //{
-        //    MailMessage mail = new MailMessage();
-        //    mail.From = new MailAddress("work.anhkhoa2607@gmail.com");
-        //    mail.To.Add(emailNhan);
-        //    mail.Subject = tieuDe;
-        //    mail.Body = noiDung;
-        //    mail.IsBodyHtml = true;
-
-        //    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-        //    smtp.Credentials = new System.Net.NetworkCredential("work.anhkhoa2607@gmail.com", "kzop xsnd dkdu mpns");
-        //    smtp.EnableSsl = true;
-        //    smtp.Send(mail);
-        //}
         public static void GuiEmail(string toEmail, string subject, string body, bool isHtml = false)
         {
             MailMessage mail = new MailMessage();
@@ -109,22 +77,6 @@ namespace BUS
             smtp.EnableSsl = true;
             smtp.Send(mail);
         }
-
-        //public bool QuenMatKhau(string email)
-        //{
-        //    var nhanVien = nvDAL.LayNhanVienTheoEmail(email);
-        //    if (nhanVien == null) return false; // Không tìm thấy email
-
-        //    string matKhauMoi = TaoMatKhauNgauNhien();
-        //    string matKhauHash = BCrypt.Net.BCrypt.HashPassword(matKhauMoi);
-
-        //    if (nvDAL.CapNhatMatKhau(nhanVien["TenDangNhap"].ToString(), matKhauHash))
-        //    {
-        //        GuiEmail(email, "Khôi phục mật khẩu", $"Mật khẩu mới của bạn là: {matKhauMoi}");
-        //        return true;
-        //    }
-        //    return false;
-        //}
         public bool QuenMatKhau(string email)
         {
             var nhanVien = nvDAL.LayNhanVienTheoEmail(email);

@@ -90,7 +90,7 @@ namespace nigga123
             this.đổiMậtKhẩuToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.đổiMậtKhẩuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("đổiMậtKhẩuToolStripMenuItem.Image")));
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(188, 30);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
@@ -172,6 +172,7 @@ namespace nigga123
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
             this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(71, 28);
             this.thốngKêToolStripMenuItem.Text = "Thống kê";
+            this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // giớiThiệuToolStripMenuItem
             // 

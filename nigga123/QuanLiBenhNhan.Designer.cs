@@ -80,7 +80,7 @@
             // TxtTimKiem
             // 
             this.TxtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTimKiem.Location = new System.Drawing.Point(484, 404);
+            this.TxtTimKiem.Location = new System.Drawing.Point(484, 413);
             this.TxtTimKiem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtTimKiem.Name = "TxtTimKiem";
             this.TxtTimKiem.Size = new System.Drawing.Size(171, 22);
@@ -93,7 +93,7 @@
             this.NutThoat.Location = new System.Drawing.Point(260, 404);
             this.NutThoat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NutThoat.Name = "NutThoat";
-            this.NutThoat.Size = new System.Drawing.Size(75, 22);
+            this.NutThoat.Size = new System.Drawing.Size(75, 38);
             this.NutThoat.TabIndex = 37;
             this.NutThoat.Text = "Thoát";
             this.NutThoat.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             this.NutXoa.Location = new System.Drawing.Point(177, 404);
             this.NutXoa.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NutXoa.Name = "NutXoa";
-            this.NutXoa.Size = new System.Drawing.Size(75, 22);
+            this.NutXoa.Size = new System.Drawing.Size(75, 38);
             this.NutXoa.TabIndex = 36;
             this.NutXoa.Text = "Xóa";
             this.NutXoa.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.NutSua.Location = new System.Drawing.Point(94, 404);
             this.NutSua.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NutSua.Name = "NutSua";
-            this.NutSua.Size = new System.Drawing.Size(75, 22);
+            this.NutSua.Size = new System.Drawing.Size(75, 38);
             this.NutSua.TabIndex = 35;
             this.NutSua.Text = "Sửa ";
             this.NutSua.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@
             this.NutThem.Location = new System.Drawing.Point(11, 404);
             this.NutThem.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NutThem.Name = "NutThem";
-            this.NutThem.Size = new System.Drawing.Size(75, 22);
+            this.NutThem.Size = new System.Drawing.Size(75, 38);
             this.NutThem.TabIndex = 34;
             this.NutThem.Text = "Thêm ";
             this.NutThem.UseVisualStyleBackColor = true;
@@ -253,7 +253,7 @@
             this.NutLamMoi.Location = new System.Drawing.Point(343, 404);
             this.NutLamMoi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NutLamMoi.Name = "NutLamMoi";
-            this.NutLamMoi.Size = new System.Drawing.Size(75, 22);
+            this.NutLamMoi.Size = new System.Drawing.Size(75, 38);
             this.NutLamMoi.TabIndex = 44;
             this.NutLamMoi.Text = "Làm mới";
             this.NutLamMoi.UseVisualStyleBackColor = true;

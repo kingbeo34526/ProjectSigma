@@ -19,7 +19,24 @@ namespace BUS
         {
             return BenhNhanDAL.GetAllBenhNhan();
         }
+        public static DataTable GetBenhNhanByBacSi(int? maBacSi)
+        {
+            return BenhNhanDAL.GetBenhNhanByBacSi(maBacSi);
+        }
+        public int GetTotalBenhNhan()
+        {
+            return BenhNhanDAL.GetTotalBenhNhan();
+        }
 
+        public DataTable GetBenhNhanByTrangThai(string trangThai)
+        {
+            return BenhNhanDAL.GetBenhNhanByTrangThai(trangThai);
+        }
+
+        public DataTable GetAllTrangThai()
+        {
+            return BenhNhanDAL.GetAllTrangThai();
+        }
         public static bool ThemBenhNhan(BenhNhanDTO benhNhan)
         {
             return BenhNhanDAL.ThemBenhNhan(benhNhan);

@@ -21,6 +21,49 @@ namespace DAL
             string query = "SELECT MaBenhNhan, HoTen FROM BenhNhan";
             return DataProvider.ExecuteQuery(query);
         }
+        public static int GetTotalBenhNhan()
+        {
+            string query = "SELECT COUNT(*) FROM BenhNhan";
+            return (int)DataProvider.ExecuteScalar(query);
+        }
+        public static DataTable GetBenhNhanByTrangThai(string trangThai)
+        {
+            string query = @"
+            SELECT bn.*, ISNULL(hskb.TrangThai, '') AS TrangThai
+            FROM BenhNhan bn
+            LEFT JOIN HoSoKhamBenh hskb ON bn.MaBenhNhan = hskb.MaBenhNhan";
+
+            // Nếu chọn "Tất cả", không lọc theo Trạng Thái
+            if (trangThai != "Tất cả")
+            {
+                query += " WHERE hskb.TrangThai = @trangThai";
+            }
+
+            SqlParameter[] parameters = { new SqlParameter("@trangThai", trangThai) };
+            return trangThai == "Tất cả"
+                ? DataProvider.ExecuteQuery(query)
+                : DataProvider.ExecuteQuery(query, parameters);
+        }
+        public static DataTable GetBenhNhanByBacSi(int? maBacSi)
+        {
+            string query = @"SELECT bn.*, nv.Ten AS BacSiDamNhiem
+                             FROM BenhNhan bn
+                             LEFT JOIN HoSoKhamBenh hskb ON bn.MaBenhNhan = hskb.MaBenhNhan
+                             LEFT JOIN NhanVien nv ON hskb.MaBacSi = nv.MaNV
+                             WHERE (@MaBacSi IS NULL OR hskb.MaBacSi = @MaBacSi)";
+
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@MaBacSi", (object)maBacSi ?? DBNull.Value)
+            };
+
+            return DataProvider.ExecuteQuery(query, parameters);
+        }
+        public static DataTable GetAllTrangThai()
+        {
+            string query = "SELECT DISTINCT TrangThai FROM HoSoKhamBenh";
+            return DataProvider.ExecuteQuery(query);
+        }
         public static bool ThemBenhNhan(BenhNhanDTO benhNhan)
         {
             string query = "INSERT INTO BenhNhan (HoTen, NgaySinh, GioiTinh, DiaChi, SoDienThoai, CanCuocCongDan) " +

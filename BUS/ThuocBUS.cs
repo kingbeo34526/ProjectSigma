@@ -11,17 +11,20 @@ namespace BUS
 {
     public class ThuocBUS
     {
+
+        private ThuocDAL thuocDAL = new ThuocDAL();
         public static DataTable GetAllThuoc()
         {
             return ThuocDAL.GetAllThuoc();
         }
-        private ThuocDAL thuocDAL = new ThuocDAL();
-
         public static List<ThuocDTO> TimKiemThuoc(string keyword)
         {
             return ThuocDAL.LayDanhSachThuoc(keyword);
         }
-
+        public int GetTotalThuoc()
+        {
+            return ThuocDAL.GetTotalThuoc();
+        }
         public void ThemThuoc(string tenThuoc, int donVi, int soLuong, decimal gia)
         {
             thuocDAL.ThemThuoc(tenThuoc, donVi, soLuong, gia);

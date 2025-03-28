@@ -16,6 +16,11 @@ namespace DAL
             string query = "SELECT * FROM Thuoc";
             return DataProvider.ExecuteQuery(query);
         }
+        public static int GetTotalThuoc()
+        {
+            string query = "SELECT COUNT(*) FROM Thuoc";
+            return (int)DataProvider.ExecuteScalar(query);
+        }
         public static List<ThuocDTO> LayDanhSachThuoc(string keyword = "")
         {
             List<ThuocDTO> danhSachThuoc = new List<ThuocDTO>();
