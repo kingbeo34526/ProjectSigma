@@ -206,7 +206,7 @@
             // Lbl_mahoso
             // 
             this.Lbl_mahoso.AutoSize = true;
-            this.Lbl_mahoso.Location = new System.Drawing.Point(141, 40);
+            this.Lbl_mahoso.Location = new System.Drawing.Point(132, 39);
             this.Lbl_mahoso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_mahoso.Name = "Lbl_mahoso";
             this.Lbl_mahoso.Size = new System.Drawing.Size(128, 20);
@@ -217,7 +217,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(295, 40);
+            this.label6.Location = new System.Drawing.Point(268, 37);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(151, 22);
@@ -227,7 +227,7 @@
             // LblBN
             // 
             this.LblBN.AutoSize = true;
-            this.LblBN.Location = new System.Drawing.Point(454, 40);
+            this.LblBN.Location = new System.Drawing.Point(427, 39);
             this.LblBN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblBN.Name = "LblBN";
             this.LblBN.Size = new System.Drawing.Size(133, 20);
