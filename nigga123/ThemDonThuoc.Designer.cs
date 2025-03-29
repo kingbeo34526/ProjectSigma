@@ -44,31 +44,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 23);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Hồ Sơ:";
             // 
             // TxtHoSo
             // 
+            this.TxtHoSo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtHoSo.Location = new System.Drawing.Point(79, 21);
             this.TxtHoSo.Name = "TxtHoSo";
             this.TxtHoSo.ReadOnly = true;
-            this.TxtHoSo.Size = new System.Drawing.Size(61, 20);
+            this.TxtHoSo.Size = new System.Drawing.Size(61, 22);
             this.TxtHoSo.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 48);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(2, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Chọn thuốc:";
             // 
             // CbThuoc
             // 
+            this.CbThuoc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbThuoc.FormattingEnabled = true;
             this.CbThuoc.Location = new System.Drawing.Point(79, 46);
             this.CbThuoc.Name = "CbThuoc";
@@ -78,21 +82,24 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 73);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(16, 75);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Số lượng:";
             // 
             // TxtSL
             // 
+            this.TxtSL.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSL.Location = new System.Drawing.Point(79, 72);
             this.TxtSL.Name = "TxtSL";
-            this.TxtSL.Size = new System.Drawing.Size(50, 20);
+            this.TxtSL.Size = new System.Drawing.Size(50, 22);
             this.TxtSL.TabIndex = 6;
             // 
             // BtnThem
             // 
+            this.BtnThem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnThem.Location = new System.Drawing.Point(12, 119);
             this.BtnThem.Name = "BtnThem";
             this.BtnThem.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +110,7 @@
             // 
             // BtnXoa
             // 
+            this.BtnXoa.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnXoa.Location = new System.Drawing.Point(93, 119);
             this.BtnXoa.Name = "BtnXoa";
             this.BtnXoa.Size = new System.Drawing.Size(75, 23);
@@ -113,6 +121,7 @@
             // 
             // BtnThoat
             // 
+            this.BtnThoat.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnThoat.Location = new System.Drawing.Point(174, 119);
             this.BtnThoat.Name = "BtnThoat";
             this.BtnThoat.Size = new System.Drawing.Size(75, 23);
