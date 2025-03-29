@@ -39,7 +39,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 16);
             this.label1.TabIndex = 0;
@@ -47,14 +47,14 @@
             // 
             // TxtDB
             // 
-            this.TxtDB.Location = new System.Drawing.Point(12, 28);
+            this.TxtDB.Location = new System.Drawing.Point(12, 27);
             this.TxtDB.Name = "TxtDB";
             this.TxtDB.Size = new System.Drawing.Size(417, 20);
             this.TxtDB.TabIndex = 1;
             // 
             // NutLuu
             // 
-            this.NutLuu.Location = new System.Drawing.Point(351, 54);
+            this.NutLuu.Location = new System.Drawing.Point(354, 52);
             this.NutLuu.Name = "NutLuu";
             this.NutLuu.Size = new System.Drawing.Size(75, 23);
             this.NutLuu.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(102, 59);
+            this.label2.Location = new System.Drawing.Point(102, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(243, 13);
             this.label2.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 88);
+            this.ClientSize = new System.Drawing.Size(441, 83);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NutLuu);
             this.Controls.Add(this.TxtDB);
