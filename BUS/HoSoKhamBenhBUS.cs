@@ -23,7 +23,10 @@ namespace BUS
         {
             return HoSoKhamBenhDAL.InsertHoSo(hoSo);
         }
-
+        public static DataTable TimKiemHoSoTheoTen(string tenBenhNhan)
+        {
+            return HoSoKhamBenhDAL.TimKiemHoSoTheoTen(tenBenhNhan);
+        }
         public static bool UpdateHoSo(HoSoKhamBenhDTO hoSo)
         {
             return HoSoKhamBenhDAL.UpdateHoSo(hoSo);

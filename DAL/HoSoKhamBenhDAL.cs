@@ -15,14 +15,23 @@ namespace DAL
         public static DataTable GetAllHoSo()
         {
             string query = @"
-        SELECT hskb.MaHoSo, hskb.MaBenhNhan, bn.HoTen, hskb.TrangThai 
-        FROM HoSoKhamBenh hskb
-        JOIN BenhNhan bn ON hskb.MaBenhNhan = bn.MaBenhNhan";
+            SELECT hskb.MaHoSo, hskb.MaBenhNhan, bn.HoTen, hskb.TrangThai 
+            FROM HoSoKhamBenh hskb
+            JOIN BenhNhan bn ON hskb.MaBenhNhan = bn.MaBenhNhan";
 
             return DataProvider.ExecuteQuery(query);
         }
+        public static DataTable TimKiemHoSoTheoTen(string tenBenhNhan)
+        {
+            string query = @"
+            SELECT hskb.MaHoSo, hskb.MaBenhNhan, bn.HoTen, hskb.TrangThai 
+            FROM HoSoKhamBenh hskb
+            JOIN BenhNhan bn ON bn.MaBenhNhan = hskb.MaBenhNhan
+            WHERE bn.HoTen LIKE @ten";
 
-
+            SqlParameter[] parameters = { new SqlParameter("@ten", "%" + tenBenhNhan + "%") };
+            return DataProvider.ExecuteQuery(query, parameters);
+        }
         public static DataTable GetAllBacSi()
         {
             string query = "SELECT MaNV, Ten FROM NhanVien WHERE PhanQuyen = 2";

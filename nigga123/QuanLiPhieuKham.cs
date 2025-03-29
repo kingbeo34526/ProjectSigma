@@ -115,12 +115,26 @@ namespace nigga123
                 MessageBox.Show("Vui lòng chọn một hồ sơ trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
+        private void TxtTimKiemTen_TextChanged(object sender, EventArgs e)
+        {
+            TimKiemHoSo();
+        }
+        private void TimKiemHoSo()
+        {
+            string tenBenhNhan = TxtTimKiemTen.Text.Trim();
+            if (!string.IsNullOrEmpty(tenBenhNhan))
+            {
+                DgvPhieuKham.DataSource = HoSoKhamBenhBUS.TimKiemHoSoTheoTen(tenBenhNhan);
+            }
+            else
+            {
+                LoadHoSo(); // Hiển thị tất cả nếu ô tìm kiếm rỗng
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             LoadHoSo();
         }
-
         private void QuanLiPhieuKham_Load(object sender, EventArgs e)
         {
             DgvPhieuKham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
@@ -134,12 +148,17 @@ namespace nigga123
             DgvPhieuKham.Columns["MaHoSo"].HeaderText = "Mã Hồ Sơ";
             DgvPhieuKham.Columns["MaBenhNhan"].HeaderText = "Mã Bệnh Nhân";
             DgvPhieuKham.Columns["HoTen"].HeaderText = "Tên Bệnh Nhân";
+            //DgvPhieuKham.Columns["MaNV"].HeaderText = "Mã Bác Sĩ";
             DgvPhieuKham.Columns["TrangThai"].HeaderText = "Trạng Thái";
+            //DgvPhieuKham.Columns["NgayHen"].HeaderText = "Ngày Hẹn";
+            //DgvPhieuKham.Columns["TrieuChung"].HeaderText = "Triệu Chứng";
+            //DgvPhieuKham.Columns["KetQuaKham"].HeaderText = "Kết Quả Khám";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }
