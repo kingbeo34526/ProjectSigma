@@ -19,10 +19,11 @@ namespace nigga123
         public QuanLiThuoc()
         {
             InitializeComponent();
+            LoadThuoc();
         }
         private void QuanLiThuoc_Load(object sender, EventArgs e)
         {
-            LoadThuoc();
+
             LoadDonViThuoc();
             DgvThuoc.Columns["MaThuoc"].HeaderText = "Mã Thuốc";
             DgvThuoc.Columns["TenThuoc"].HeaderText = "Tên Thuốc";
@@ -110,10 +111,23 @@ namespace nigga123
         {
             LoadThuoc(TxtTimKiem.Text.Trim());
         }
+        private void ClearForm()
+        {
+            TxtMaThuoc.Clear();
+            TxtTenThuoc.Clear();
+            TxtSL.Clear();
+            TxtGia.Clear();
+            CbThuoc.SelectedIndex = -1; // Bỏ chọn đơn vị thuốc
+            TxtTimKiem.Clear();
+            DgvThuoc.ClearSelection();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
         private void NutThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
     }
 }

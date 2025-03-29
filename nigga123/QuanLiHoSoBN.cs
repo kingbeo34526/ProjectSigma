@@ -17,6 +17,8 @@ namespace nigga123
     public partial class QuanLiHoSoBN : Form
     {
         private int? maHoSo;
+        public event Action HoSoDaCapNhat; 
+
         public QuanLiHoSoBN(int? maHoSo = null)
         {
             InitializeComponent();
@@ -92,6 +94,7 @@ namespace nigga123
             if (result)
             {
                 MessageBox.Show("Lưu hồ sơ thành công!");
+                HoSoDaCapNhat?.Invoke();
                 this.Close();
             }
             else
@@ -102,6 +105,18 @@ namespace nigga123
         private void NutThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CmbBenhNhan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbBenhNhan.SelectedItem != null)
+            {
+                DataRowView row = CmbBenhNhan.SelectedItem as DataRowView;
+                if (row != null)
+                {
+                    LblBN.Text = row["HoTen"].ToString();
+                }
+            }
         }
     }
 }

@@ -42,8 +42,8 @@ namespace nigga123
 
             QuanLiHoSoBN form = new QuanLiHoSoBN();
             form.MdiParent = this.MdiParent; // Đặt Form Chính làm MDI Parent
+            form.HoSoDaCapNhat += LoadHoSo;
             form.Show();
-            LoadHoSo(); // Refresh sau khi thêm
         }
 
         private void NutXem_Click(object sender, EventArgs e)
@@ -54,8 +54,8 @@ namespace nigga123
                 int maHoSo = Convert.ToInt32(DgvPhieuKham.SelectedRows[0].Cells["MaHoSo"].Value);
                 QuanLiHoSoBN form = new QuanLiHoSoBN(maHoSo);
                 form.MdiParent = this.MdiParent; // Đặt Form Chính làm MDI Parent
+                form.HoSoDaCapNhat += LoadHoSo;
                 form.Show();
-                LoadHoSo();
             }
         }
         private void DgvPhieuKham_SelectionChanged(object sender, EventArgs e)

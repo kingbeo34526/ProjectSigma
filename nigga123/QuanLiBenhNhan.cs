@@ -17,11 +17,10 @@ namespace nigga123
         public QuanLiBenhNhan()
         {
             InitializeComponent();
+            LoadDanhSachBenhNhan();
         }
         private void QuanLiBenhNhan_Load(object sender, EventArgs e)
         {
-            LoadDanhSachBenhNhan();
-            DgvBenhNhan.SelectionChanged += DgvBenhNhan_SelectionChanged;
             this.TxtTimKiem.TextChanged += new System.EventHandler(this.TxtTimKiem_TextChanged);
             DgvBenhNhan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Cột tự động co giãn theo độ rộng của DGV
             DgvBenhNhan.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; // Căn giữa tiêu đề
@@ -31,7 +30,6 @@ namespace nigga123
             DgvBenhNhan.AllowUserToResizeColumns = true; // Cho phép resize cột
             DgvBenhNhan.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chọn nguyên dòng
             DgvBenhNhan.MultiSelect = false; // Không cho phép chọn nhiều dòng
-            DgvBenhNhan.ClearSelection();
         }
         private bool KiemTraThongTin()
         {
@@ -65,35 +63,29 @@ namespace nigga123
 
         private void LoadDanhSachBenhNhan()
         {
+            // Ngắt sự kiện SelectionChanged tạm thời
+            DgvBenhNhan.SelectionChanged -= DgvBenhNhan_SelectionChanged;
+
             DataTable dt = BenhNhanBUS.LayDanhSachBenhNhan();
-
-            // Kiểm tra nếu chưa có cột hiển thị giới tính thì thêm vào
-            if (!dt.Columns.Contains("GioiTinhHienThi"))
-                dt.Columns.Add("GioiTinhHienThi", typeof(string));
-
-            foreach (DataRow row in dt.Rows)
-            {
-                // Kiểm tra giá trị trước khi chuyển đổi
-                int gioiTinh = Convert.ToInt32(row["GioiTinh"]);
-                row["GioiTinhHienThi"] = gioiTinh == 1 ? "Nam" : "Nữ";
-            }
-
-            // Gán dữ liệu cho DataGridView
             DgvBenhNhan.DataSource = dt;
 
             // Định dạng tiêu đề cột hiển thị tiếng Việt
             DgvBenhNhan.Columns["MaBenhNhan"].HeaderText = "Mã Bệnh Nhân";
             DgvBenhNhan.Columns["HoTen"].HeaderText = "Họ và Tên";
             DgvBenhNhan.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
-            DgvBenhNhan.Columns["GioiTinhHienThi"].HeaderText = "Giới Tính"; // Hiển thị chữ Nam/Nữ
             DgvBenhNhan.Columns["DiaChi"].HeaderText = "Địa Chỉ";
             DgvBenhNhan.Columns["SoDienThoai"].HeaderText = "Số Điện Thoại";
             DgvBenhNhan.Columns["CanCuocCongDan"].HeaderText = "CMND/CCCD";
-            DgvBenhNhan.Columns["GioiTinhHienThi"].DisplayIndex = DgvBenhNhan.Columns["HoTen"].DisplayIndex + 1;
+            DgvBenhNhan.Columns["GioiTinh"].HeaderText = "Giới tính";
 
-            // Ẩn cột gốc GioiTinh (nếu không cần thiết)
-            DgvBenhNhan.Columns["GioiTinh"].Visible = false;
+            // Bỏ chọn dòng đầu tiên
+            DgvBenhNhan.ClearSelection();
+            DgvBenhNhan.CurrentCell = null;
+
+            // Kích hoạt lại sự kiện
+            DgvBenhNhan.SelectionChanged += DgvBenhNhan_SelectionChanged;
         }
+
 
 
 
@@ -175,31 +167,32 @@ namespace nigga123
         }
         private void DgvBenhNhan_SelectionChanged(object sender, EventArgs e)
         {
-            if (DgvBenhNhan.SelectedRows.Count > 0)
+            if (DgvBenhNhan.SelectedRows.Count == 0 || DgvBenhNhan.CurrentRow == null)
+                return; // Nếu không có dòng nào, thoát luôn
+
+            DataGridViewRow row = DgvBenhNhan.SelectedRows[0];
+            TxtHoVaTen.Text = row.Cells["HoTen"].Value?.ToString();
+            DateSinh.Value = row.Cells["NgaySinh"].Value != DBNull.Value
+                                ? Convert.ToDateTime(row.Cells["NgaySinh"].Value)
+                                : DateTime.Now;
+
+            string gioiTinh = row.Cells["GioiTinh"].Value?.ToString().Trim();
+            if (!string.IsNullOrEmpty(gioiTinh))
             {
-                DataGridViewRow row = DgvBenhNhan.SelectedRows[0];
-                TxtHoVaTen.Text = row.Cells["HoTen"].Value?.ToString();
-                DateSinh.Value = row.Cells["NgaySinh"].Value != DBNull.Value
-                                    ? Convert.ToDateTime(row.Cells["NgaySinh"].Value)
-                                    : DateTime.Now;
-
-                string gioiTinh = row.Cells["GioiTinhHienThi"].Value?.ToString().Trim();
-                if (!string.IsNullOrEmpty(gioiTinh))
-                {
-                    RbNam.Checked = gioiTinh.Equals("Nam", StringComparison.OrdinalIgnoreCase);
-                    RbNu.Checked = gioiTinh.Equals("Nữ", StringComparison.OrdinalIgnoreCase);
-                }
-                else
-                {
-                    RbNam.Checked = false;
-                    RbNu.Checked = false;
-                }
-
-                TxtDiaChi.Text = row.Cells["DiaChi"].Value?.ToString();
-                TxtSDT.Text = row.Cells["SoDienThoai"].Value?.ToString();
-                TxtCCCD.Text = row.Cells["CanCuocCongDan"].Value?.ToString();
+                RbNam.Checked = gioiTinh == "1";
+                RbNu.Checked = gioiTinh == "2";
             }
+            else
+            {
+                RbNam.Checked = false;
+                RbNu.Checked = false;
+            }
+
+            TxtDiaChi.Text = row.Cells["DiaChi"].Value?.ToString();
+            TxtSDT.Text = row.Cells["SoDienThoai"].Value?.ToString();
+            TxtCCCD.Text = row.Cells["CanCuocCongDan"].Value?.ToString();
         }
+
         private void NutLamMoi_Click(object sender, EventArgs e)
         {
             LoadDanhSachBenhNhan(); // Load lại danh sách bệnh nhân
@@ -225,6 +218,22 @@ namespace nigga123
         private void NutThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void DgvBenhNhan_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (DgvBenhNhan.Columns[e.ColumnIndex].Name == "GioiTinh") // Kiểm tra cột Giới Tính
+            {
+                if (e.Value != null)
+                {
+                    int gioiTinh;
+                    if (int.TryParse(e.Value.ToString(), out gioiTinh))
+                    {
+                        e.Value = (gioiTinh == 1) ? "Nam" : "Nữ";
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
         }
     }
 }
