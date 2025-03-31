@@ -145,10 +145,20 @@ namespace nigga123
         }
         private void GhiDuLieuExcel(Excel.Worksheet worksheet, DataGridView dgv)
         {
+            Excel.Range headerRange;
+
+            // Định dạng tiêu đề
             for (int i = 0; i < dgv.Columns.Count; i++)
             {
                 worksheet.Cells[1, i + 1] = dgv.Columns[i].HeaderText;
             }
+
+            headerRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, dgv.Columns.Count]];
+            headerRange.Font.Bold = true;
+            headerRange.Interior.Color = Color.LightGray;  // Màu nền tiêu đề
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+
+            // Ghi dữ liệu
             for (int i = 0; i < dgv.Rows.Count; i++)
             {
                 for (int j = 0; j < dgv.Columns.Count; j++)
@@ -156,7 +166,15 @@ namespace nigga123
                     worksheet.Cells[i + 2, j + 1] = dgv.Rows[i].Cells[j].Value?.ToString();
                 }
             }
+
+            // Áp dụng viền cho toàn bộ bảng
+            Excel.Range usedRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[dgv.Rows.Count + 1, dgv.Columns.Count]];
+            usedRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
+            // Tự động điều chỉnh độ rộng cột
+            usedRange.Columns.AutoFit();
         }
+
         private void LoadXuatExcel()
         {
             CbXuat.Items.Add("Bệnh Nhân");
