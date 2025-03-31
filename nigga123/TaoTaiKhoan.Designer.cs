@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BoxTen = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.NutHuy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -85,7 +86,7 @@
             // NutTao
             // 
             this.NutTao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutTao.Location = new System.Drawing.Point(124, 330);
+            this.NutTao.Location = new System.Drawing.Point(79, 329);
             this.NutTao.Margin = new System.Windows.Forms.Padding(2);
             this.NutTao.Name = "NutTao";
             this.NutTao.Size = new System.Drawing.Size(99, 32);
@@ -144,12 +145,25 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Tên:";
             // 
+            // NutHuy
+            // 
+            this.NutHuy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NutHuy.Location = new System.Drawing.Point(189, 329);
+            this.NutHuy.Margin = new System.Windows.Forms.Padding(2);
+            this.NutHuy.Name = "NutHuy";
+            this.NutHuy.Size = new System.Drawing.Size(99, 32);
+            this.NutHuy.TabIndex = 21;
+            this.NutHuy.Text = "Hủy";
+            this.NutHuy.UseVisualStyleBackColor = true;
+            this.NutHuy.Click += new System.EventHandler(this.NutHuy_Click);
+            // 
             // TaoTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 402);
             this.ControlBox = false;
+            this.Controls.Add(this.NutHuy);
             this.Controls.Add(this.BoxTen);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BoxUsername);
@@ -180,5 +194,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox BoxTen;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button NutHuy;
     }
 }

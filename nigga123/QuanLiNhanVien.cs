@@ -50,6 +50,7 @@ namespace nigga123
         private void ButtonThem_Click(object sender, EventArgs e)
         {
             TaoTaiKhoan ttk = new TaoTaiKhoan();
+            ttk.MdiParent = this.MdiParent;
             ttk.Show();
         }
 

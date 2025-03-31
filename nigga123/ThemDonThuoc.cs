@@ -59,14 +59,31 @@ namespace nigga123
             DgvCTDT.DataSource = donThuocBUS.LayChiTietDonThuoc(maDonThuoc); 
             DgvCTDT.Columns["MaChiTiet"].Visible = false; // Ẩn cột MaChiTiet
         }
-        private void BtnThem_Click(object sender, EventArgs e)
+        private bool KiemTraDuLieu()
         {
-            if (CbThuoc.SelectedValue == null || string.IsNullOrWhiteSpace(TxtSL.Text))
+            if (CbThuoc.SelectedValue == null)
             {
-                MessageBox.Show("Vui lòng chọn thuốc và nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                MessageBox.Show("Vui lòng chọn thuốc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
 
+            if (string.IsNullOrWhiteSpace(TxtSL.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!int.TryParse(TxtSL.Text, out int soLuong) || soLuong <= 0)
+            {
+                MessageBox.Show("Số lượng phải là số nguyên dương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+        private void BtnThem_Click(object sender, EventArgs e)
+        {
+            if (!KiemTraDuLieu()) return;
             int maThuoc = Convert.ToInt32(CbThuoc.SelectedValue);
             int soLuong = Convert.ToInt32(TxtSL.Text);
 

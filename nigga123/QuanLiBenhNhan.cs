@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
@@ -33,29 +34,34 @@ namespace nigga123
         }
         private bool KiemTraThongTin()
         {
-            if (string.IsNullOrWhiteSpace(TxtHoVaTen.Text))
+            if (string.IsNullOrWhiteSpace(TxtHoVaTen.Text) || !Regex.IsMatch(TxtHoVaTen.Text, @"^[a-zA-ZÀ-Ỹà-ỹ\s]+$"))
             {
-                MessageBox.Show("Vui lòng nhập họ và tên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Họ và tên không hợp lệ! Không được chứa số hoặc ký tự đặc biệt.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(TxtCCCD.Text))
+            if (string.IsNullOrWhiteSpace(TxtCCCD.Text) || !Regex.IsMatch(TxtCCCD.Text, @"^\d{9,12}$"))
             {
-                MessageBox.Show("Vui lòng nhập số CMND/CCCD!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Số CMND/CCCD không hợp lệ! Vui lòng nhập đúng định dạng (9-12 số).", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(TxtSDT.Text))
+            if (string.IsNullOrWhiteSpace(TxtSDT.Text) || !Regex.IsMatch(TxtSDT.Text, @"^0\d{9}$"))
             {
-                MessageBox.Show("Vui lòng nhập số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Số điện thoại không hợp lệ! Phải bắt đầu bằng số 0 và có 10 chữ số.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrWhiteSpace(TxtDiaChi.Text))
             {
-                MessageBox.Show("Vui lòng nhập địa chỉ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập địa chỉ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (!RbNam.Checked && !RbNu.Checked)
             {
-                MessageBox.Show("Vui lòng chọn giới tính!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn giới tính!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (DateSinh.Value >= DateTime.Now)
+            {
+                MessageBox.Show("Ngày sinh không hợp lệ! Phải nhỏ hơn ngày hiện tại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -86,9 +92,6 @@ namespace nigga123
             DgvBenhNhan.SelectionChanged += DgvBenhNhan_SelectionChanged;
         }
 
-
-
-
         private void NutThem_Click(object sender, EventArgs e)
         {
             if (!KiemTraThongTin()) return;
@@ -102,39 +105,61 @@ namespace nigga123
                 CanCuocCongDan = TxtCCCD.Text
             };
 
+            // Kiểm tra trùng CCCD
+            if (BenhNhanBUS.KiemTraCCCDTonTai(bn.CanCuocCongDan))
+            {
+                MessageBox.Show("Số CCCD này đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Kiểm tra trùng SĐT
+            if (BenhNhanBUS.KiemTraSDTTonTai(bn.SoDienThoai))
+            {
+                MessageBox.Show("Số điện thoại này đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (BenhNhanBUS.ThemBenhNhan(bn))
             {
                 MessageBox.Show("Thêm bệnh nhân thành công!");
                 LoadDanhSachBenhNhan();
             }
             else
+            {
                 MessageBox.Show("Thêm bệnh nhân thất bại!");
+            }
         }
 
         private void NutSua_Click(object sender, EventArgs e)
         {
             if (!KiemTraThongTin()) return;
+
             if (DgvBenhNhan.SelectedRows.Count > 0)
             {
                 int maBenhNhan = Convert.ToInt32(DgvBenhNhan.SelectedRows[0].Cells["MaBenhNhan"].Value);
-                BenhNhanDTO bn = new BenhNhanDTO()
-                {
-                    MaBenhNhan = maBenhNhan,
-                    HoTen = TxtHoVaTen.Text,
-                    NgaySinh = DateSinh.Value,
-                    GioiTinh = RbNam.Checked ? 1 : 2,
-                    DiaChi = TxtDiaChi.Text,
-                    SoDienThoai = TxtSDT.Text,
-                    CanCuocCongDan = TxtCCCD.Text
-                };
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin bệnh nhân này?", "Xác nhận sửa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (BenhNhanBUS.SuaBenhNhan(bn))
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Sửa bệnh nhân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadDanhSachBenhNhan();
+                    BenhNhanDTO bn = new BenhNhanDTO()
+                    {
+                        MaBenhNhan = maBenhNhan,
+                        HoTen = TxtHoVaTen.Text,
+                        NgaySinh = DateSinh.Value,
+                        GioiTinh = RbNam.Checked ? 1 : 2,
+                        DiaChi = TxtDiaChi.Text,
+                        SoDienThoai = TxtSDT.Text,
+                        CanCuocCongDan = TxtCCCD.Text
+                    };
+
+                    if (BenhNhanBUS.SuaBenhNhan(bn))
+                    {
+                        MessageBox.Show("Sửa bệnh nhân thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDanhSachBenhNhan();
+                    }
+                    else
+                        MessageBox.Show("Sửa bệnh nhân thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show("Sửa bệnh nhân thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -147,18 +172,28 @@ namespace nigga123
             if (DgvBenhNhan.SelectedRows.Count > 0)
             {
                 int maBenhNhan = Convert.ToInt32(DgvBenhNhan.SelectedRows[0].Cells["MaBenhNhan"].Value);
+
                 if (BenhNhanBUS.KiemTraTonTaiTrongPhieuKham(maBenhNhan))
                 {
                     MessageBox.Show("Bệnh nhân đã có trong Phiếu Khám, không thể xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (BenhNhanBUS.XoaBenhNhan(maBenhNhan))
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa bệnh nhân này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Xóa bệnh nhân thành công!");
-                    LoadDanhSachBenhNhan();
+                    if (BenhNhanBUS.XoaBenhNhan(maBenhNhan))
+                    {
+                        MessageBox.Show("Xóa bệnh nhân thành công!");
+                        LoadDanhSachBenhNhan();
+                    }
+                    else
+                        MessageBox.Show("Xóa bệnh nhân thất bại!");
                 }
-                else
-                    MessageBox.Show("Xóa bệnh nhân thất bại!");
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn bệnh nhân cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void TxtTimKiem_TextChanged(object sender, EventArgs e)

@@ -38,30 +38,52 @@ namespace nigga123
             DgvCTDT.DataSource = donThuocBUS.LayChiTietDonThuoc(maDonThuoc);
             DgvCTDT.Columns["MaChiTiet"].Visible = false; // Ẩn cột MaChiTiet
         }
+        private bool KiemTraDuLieu()
+        {
+            if (DgvCTDT.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một chi tiết đơn thuốc để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
+            if (CbThuoc.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn thuốc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtSL.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!int.TryParse(TxtSL.Text, out int soLuong) || soLuong <= 0)
+            {
+                MessageBox.Show("Số lượng phải là số nguyên dương!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
         private void BtnSua_Click(object sender, EventArgs e)
         {
-            if (DgvCTDT.SelectedRows.Count > 0 && !string.IsNullOrWhiteSpace(TxtSL.Text))
-            {
-                int maChiTiet = Convert.ToInt32(DgvCTDT.SelectedRows[0].Cells["MaChiTiet"].Value); // Lấy từ DGV
-                int maThuoc = Convert.ToInt32(CbThuoc.SelectedValue);
-                int soLuong = Convert.ToInt32(TxtSL.Text);
+            if (!KiemTraDuLieu()) return;
+            int maChiTiet = Convert.ToInt32(DgvCTDT.SelectedRows[0].Cells["MaChiTiet"].Value); // Lấy từ DGV
+            int maThuoc = Convert.ToInt32(CbThuoc.SelectedValue);
+            int soLuong = Convert.ToInt32(TxtSL.Text);
 
-                ChiTietDonThuocDTO chiTiet = new ChiTietDonThuocDTO
-                {
-                    MaChiTiet = maChiTiet,  // Dùng giá trị sẵn có
-                    MaThuoc = maThuoc,
-                    SoLuong = soLuong
-                };
-
-                chiTietDonThuocBUS.SuaChiTietDonThuoc(chiTiet);
-                LoadDanhSachChiTiet();
-            }
-            else
+            ChiTietDonThuocDTO chiTiet = new ChiTietDonThuocDTO
             {
-                MessageBox.Show("Vui lòng chọn chi tiết cần sửa và nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+                MaChiTiet = maChiTiet,  // Dùng giá trị sẵn có
+                MaThuoc = maThuoc,
+                SoLuong = soLuong
+            };
+
+            chiTietDonThuocBUS.SuaChiTietDonThuoc(chiTiet);
+            LoadDanhSachChiTiet();
         }
+
 
         private void BtnThoat_Click(object sender, EventArgs e)
         {

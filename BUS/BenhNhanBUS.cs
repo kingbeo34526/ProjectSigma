@@ -64,5 +64,14 @@ namespace BUS
         {
             return BenhNhanDAL.KiemTraTonTaiTrongPhieuKham(maBenhNhan);
         }
+        public static bool KiemTraCCCDTonTai(string cccd)
+        {
+            return BenhNhanDAL.KiemTraCCCDTonTai(cccd);
+        }
+
+        public static bool KiemTraSDTTonTai(string sdt)
+        {
+            return BenhNhanDAL.KiemTraSDTTonTai(sdt);
+        }
     }
 }

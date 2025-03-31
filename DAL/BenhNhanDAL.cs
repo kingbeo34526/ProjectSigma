@@ -128,6 +128,19 @@ namespace DAL
             int count = (int)DataProvider.ExecuteScalar(query, parameters);
             return count > 0;
         }
-
+        public static bool KiemTraCCCDTonTai(string cccd)
+        {
+            string query = "SELECT COUNT(*) FROM BenhNhan WHERE CanCuocCongDan = @CCCD";
+            SqlParameter[] parameters = { new SqlParameter("@CCCD", cccd) };
+            int count = (int)DataProvider.ExecuteScalar(query, parameters);
+            return count > 0;
+        }
+        public static bool KiemTraSDTTonTai(string sdt)
+        {
+            string query = "SELECT COUNT(*) FROM BenhNhan WHERE SoDienThoai = @SDT";
+            SqlParameter[] parameters = { new SqlParameter("@SDT", sdt) };
+            int count = (int)DataProvider.ExecuteScalar(query, parameters);
+            return count > 0;
+        }
     }
 }

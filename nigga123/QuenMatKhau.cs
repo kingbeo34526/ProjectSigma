@@ -29,14 +29,21 @@ namespace nigga123
                 return;
             }
 
+            if (!nvBUS.KiemTraEmailTonTai(email))
+            {
+                MessageBox.Show("Email không tồn tại trong hệ thống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (nvBUS.QuenMatKhau(email))
             {
                 MessageBox.Show("Mật khẩu mới đã được gửi qua email.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Email không tồn tại trong hệ thống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi xảy ra khi gửi mật khẩu mới.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

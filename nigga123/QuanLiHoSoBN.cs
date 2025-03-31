@@ -60,15 +60,35 @@ namespace nigga123
                 CmbTrangThai.SelectedItem = row["TrangThai"].ToString();
             }
         }
-
+        private bool KiemTraChuoiHopLe(string input)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(input, @"^[a-zA-Z0-9\s,\.!?]+$");
+        }
         private void NutThem_Click(object sender, EventArgs e)
         {
             if (CmbBenhNhan.SelectedValue == null || CmbBacSi.SelectedValue == null)
             {
-                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!");
+                MessageBox.Show("Vui lòng chọn Bệnh nhân và Bác sĩ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(TxtTrieuChung.Text) || !KiemTraChuoiHopLe(TxtTrieuChung.Text))
+            {
+                MessageBox.Show("Triệu chứng không hợp lệ! Không được để trống hoặc chứa ký tự đặc biệt.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtKetQua.Text) || !KiemTraChuoiHopLe(TxtKetQua.Text))
+            {
+                MessageBox.Show("Kết quả khám không hợp lệ! Không được để trống hoặc chứa ký tự đặc biệt.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (DateHen.Value < DateTime.Now.Date)
+            {
+                MessageBox.Show("Ngày hẹn không hợp lệ! Không được nhỏ hơn ngày hiện tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             HoSoKhamBenhDTO hoSo = new HoSoKhamBenhDTO
             {
                 MaHoSo = maHoSo ?? 0, // Nếu null thì để SQL tự tăng
