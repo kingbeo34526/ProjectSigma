@@ -17,8 +17,7 @@ namespace nigga123
     public partial class QuanLiHoSoBN : Form
     {
         private int? maHoSo;
-        public event Action HoSoDaCapNhat; 
-
+        public event Action HoSoDaCapNhat;
         public QuanLiHoSoBN(int? maHoSo = null)
         {
             InitializeComponent();

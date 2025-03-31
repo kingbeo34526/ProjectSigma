@@ -56,32 +56,62 @@ namespace nigga123
 
         private void NutThem_Click(object sender, EventArgs e)
         {
-            string tenThuoc = TxtTenThuoc.Text;
-            int donVi = (int)((dynamic)CbThuoc.SelectedItem).Value;
-            int soLuong = Convert.ToInt32(TxtSL.Text);
-            decimal gia = Convert.ToDecimal(TxtGia.Text);
+            if (string.IsNullOrWhiteSpace(TxtTenThuoc.Text) ||
+                CbThuoc.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(TxtSL.Text) ||
+                string.IsNullOrWhiteSpace(TxtGia.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                string tenThuoc = TxtTenThuoc.Text;
+                int donVi = (int)((dynamic)CbThuoc.SelectedItem).Value;
+                int soLuong = int.Parse(TxtSL.Text);
+                decimal gia = decimal.Parse(TxtGia.Text);
 
-            thuocBUS.ThemThuoc(tenThuoc, donVi, soLuong, gia);
-            LoadThuoc();
+                thuocBUS.ThemThuoc(tenThuoc, donVi, soLuong, gia);
+                LoadThuoc();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Số lượng và giá phải là số hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void NutSua_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(TxtMaThuoc.Text))
+            {
+                MessageBox.Show("Vui lòng chọn thuốc cần sửa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (string.IsNullOrEmpty(TxtMaThuoc.Text)) return;
+            try
+            {
+                int maThuoc = int.Parse(TxtMaThuoc.Text);
+                string tenThuoc = TxtTenThuoc.Text;
+                int donVi = (int)((dynamic)CbThuoc.SelectedItem).Value;
+                int soLuong = int.Parse(TxtSL.Text);
+                decimal gia = decimal.Parse(TxtGia.Text);
 
-            int maThuoc = Convert.ToInt32(TxtMaThuoc.Text);
-            string tenThuoc = TxtTenThuoc.Text;
-            int donVi = (int)((dynamic)CbThuoc.SelectedItem).Value;
-            int soLuong = Convert.ToInt32(TxtSL.Text);
-            decimal gia = Convert.ToDecimal(TxtGia.Text);
-
-            thuocBUS.SuaThuoc(maThuoc, tenThuoc, donVi, soLuong, gia);
-            LoadThuoc();
+                thuocBUS.SuaThuoc(maThuoc, tenThuoc, donVi, soLuong, gia);
+                LoadThuoc();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Số lượng và giá phải là số hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void NutXoa_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtMaThuoc.Text)) return;
+            if (string.IsNullOrWhiteSpace(TxtMaThuoc.Text))
+            {
+                MessageBox.Show("Vui lòng chọn thuốc cần xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             int maThuoc = Convert.ToInt32(TxtMaThuoc.Text);
             thuocBUS.XoaThuoc(maThuoc);

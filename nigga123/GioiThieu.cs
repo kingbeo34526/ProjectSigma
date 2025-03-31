@@ -42,10 +42,8 @@ namespace nigga123
                 </div>
             </body>
             </html>";
-
             webBrowser1.DocumentText = html;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -65,7 +65,7 @@ namespace nigga123
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
             this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(1054, 30);
+            this.menuStrip2.Size = new System.Drawing.Size(1052, 30);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip1";
             // 
@@ -201,7 +201,7 @@ namespace nigga123
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1054, 630);
+            this.ClientSize = new System.Drawing.Size(1052, 630);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.LblThongTin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

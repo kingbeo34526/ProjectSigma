@@ -76,7 +76,14 @@ namespace DAL
         }
         public static DataTable GetHoSoByTrangThai(string trangThai)
         {
-            string query = "SELECT * FROM HoSoKhamBenh WHERE TrangThai = @TrangThai";
+            //string query = "SELECT * FROM HoSoKhamBenh WHERE TrangThai = @TrangThai";
+            //SqlParameter[] parameters = { new SqlParameter("@TrangThai", trangThai) };
+            //return DataProvider.ExecuteQuery(query, parameters);
+            string query = @"
+            SELECT hskb.MaHoSo, hskb.MaBenhNhan, bn.HoTen, hskb.TrangThai 
+            FROM HoSoKhamBenh hskb
+            JOIN BenhNhan bn ON bn.MaBenhNhan = hskb.MaBenhNhan
+            WHERE TrangThai = @TrangThai";
             SqlParameter[] parameters = { new SqlParameter("@TrangThai", trangThai) };
             return DataProvider.ExecuteQuery(query, parameters);
         }
