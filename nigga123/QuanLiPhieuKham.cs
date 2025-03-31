@@ -154,12 +154,10 @@ namespace nigga123
             //DgvPhieuKham.Columns["TrieuChung"].HeaderText = "Triệu Chứng";
             //DgvPhieuKham.Columns["KetQuaKham"].HeaderText = "Kết Quả Khám";
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             if (DgvPhieuKham.SelectedRows.Count > 0)

@@ -77,7 +77,7 @@
             // NutThem
             // 
             this.NutThem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutThem.Location = new System.Drawing.Point(515, 158);
+            this.NutThem.Location = new System.Drawing.Point(515, 163);
             this.NutThem.Name = "NutThem";
             this.NutThem.Size = new System.Drawing.Size(96, 25);
             this.NutThem.TabIndex = 14;
@@ -88,7 +88,7 @@
             // NutThoat
             // 
             this.NutThoat.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutThoat.Location = new System.Drawing.Point(617, 158);
+            this.NutThoat.Location = new System.Drawing.Point(617, 163);
             this.NutThoat.Name = "NutThoat";
             this.NutThoat.Size = new System.Drawing.Size(96, 25);
             this.NutThoat.TabIndex = 17;
@@ -225,7 +225,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 202);
+            this.ClientSize = new System.Drawing.Size(742, 200);
             this.ControlBox = false;
             this.Controls.Add(this.LblBN);
             this.Controls.Add(this.label6);

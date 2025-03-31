@@ -65,7 +65,7 @@
             // NutLapHS
             // 
             this.NutLapHS.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutLapHS.Location = new System.Drawing.Point(696, 97);
+            this.NutLapHS.Location = new System.Drawing.Point(697, 112);
             this.NutLapHS.Name = "NutLapHS";
             this.NutLapHS.Size = new System.Drawing.Size(132, 39);
             this.NutLapHS.TabIndex = 14;
@@ -87,7 +87,7 @@
             // NutXem
             // 
             this.NutXem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutXem.Location = new System.Drawing.Point(696, 54);
+            this.NutXem.Location = new System.Drawing.Point(697, 69);
             this.NutXem.Name = "NutXem";
             this.NutXem.Size = new System.Drawing.Size(132, 39);
             this.NutXem.TabIndex = 19;
@@ -98,7 +98,7 @@
             // NutDonThuoc
             // 
             this.NutDonThuoc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutDonThuoc.Location = new System.Drawing.Point(696, 11);
+            this.NutDonThuoc.Location = new System.Drawing.Point(697, 26);
             this.NutDonThuoc.Name = "NutDonThuoc";
             this.NutDonThuoc.Size = new System.Drawing.Size(132, 39);
             this.NutDonThuoc.TabIndex = 20;
@@ -109,9 +109,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(696, 140);
+            this.button1.Location = new System.Drawing.Point(768, 157);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 39);
+            this.button1.Size = new System.Drawing.Size(61, 39);
             this.button1.TabIndex = 21;
             this.button1.Text = "Tải lại";
             this.button1.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(697, 230);
+            this.button2.Location = new System.Drawing.Point(697, 202);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 39);
             this.button2.TabIndex = 22;
@@ -150,9 +150,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(697, 185);
+            this.button3.Location = new System.Drawing.Point(697, 157);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 39);
+            this.button3.Size = new System.Drawing.Size(65, 39);
             this.button3.TabIndex = 25;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = true;
