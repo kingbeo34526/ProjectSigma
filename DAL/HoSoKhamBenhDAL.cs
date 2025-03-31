@@ -87,5 +87,20 @@ namespace DAL
             SqlParameter[] parameters = { new SqlParameter("@TrangThai", trangThai) };
             return DataProvider.ExecuteQuery(query, parameters);
         }
+        public static bool XoaHoSo(int maHoSo)
+        {
+            string query = @"
+                DELETE FROM ChiTietDonThuoc WHERE MaDonThuoc IN (SELECT MaDonThuoc FROM DonThuoc WHERE MaHoSo = @MaHoSo);
+                DELETE FROM DonThuoc WHERE MaHoSo = @MaHoSo;
+                DELETE FROM HoSoKhamBenh WHERE MaHoSo = @MaHoSo;
+            ";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaHoSo", maHoSo)
+            };
+
+            return DataProvider.ExecuteNonQuery(query, parameters) > 0;
+        }
     }
 }

@@ -38,6 +38,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.TxtTimKiemTen = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvPhieuKham)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             // NutLapHS
             // 
             this.NutLapHS.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutLapHS.Location = new System.Drawing.Point(696, 117);
+            this.NutLapHS.Location = new System.Drawing.Point(696, 97);
             this.NutLapHS.Name = "NutLapHS";
             this.NutLapHS.Size = new System.Drawing.Size(132, 39);
             this.NutLapHS.TabIndex = 14;
@@ -86,7 +87,7 @@
             // NutXem
             // 
             this.NutXem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutXem.Location = new System.Drawing.Point(696, 74);
+            this.NutXem.Location = new System.Drawing.Point(696, 54);
             this.NutXem.Name = "NutXem";
             this.NutXem.Size = new System.Drawing.Size(132, 39);
             this.NutXem.TabIndex = 19;
@@ -97,7 +98,7 @@
             // NutDonThuoc
             // 
             this.NutDonThuoc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutDonThuoc.Location = new System.Drawing.Point(696, 31);
+            this.NutDonThuoc.Location = new System.Drawing.Point(696, 11);
             this.NutDonThuoc.Name = "NutDonThuoc";
             this.NutDonThuoc.Size = new System.Drawing.Size(132, 39);
             this.NutDonThuoc.TabIndex = 20;
@@ -108,7 +109,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(696, 160);
+            this.button1.Location = new System.Drawing.Point(696, 140);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 39);
             this.button1.TabIndex = 21;
@@ -119,7 +120,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(696, 203);
+            this.button2.Location = new System.Drawing.Point(697, 230);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(132, 39);
             this.button2.TabIndex = 22;
@@ -146,12 +147,24 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "Tìm kiếm theo tên:";
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(697, 185);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(132, 39);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Xóa";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // QuanLiPhieuKham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 292);
             this.ControlBox = false;
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtTimKiemTen);
             this.Controls.Add(this.button2);
@@ -182,5 +195,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox TxtTimKiemTen;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
     }
 }

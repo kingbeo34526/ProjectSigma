@@ -160,5 +160,31 @@ namespace nigga123
             this.Close();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (DgvPhieuKham.SelectedRows.Count > 0)
+            {
+                int maHoSo = Convert.ToInt32(DgvPhieuKham.SelectedRows[0].Cells["MaHoSo"].Value);
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hồ sơ này không?", "Xác nhận xóa",
+                                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    if (HoSoKhamBenhBUS.XoaHoSo(maHoSo))
+                    {
+                        MessageBox.Show("Xóa hồ sơ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadHoSo(); // Cập nhật lại danh sách sau khi xóa
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa hồ sơ thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hồ sơ để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

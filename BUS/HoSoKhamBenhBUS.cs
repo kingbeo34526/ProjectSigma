@@ -35,5 +35,9 @@ namespace BUS
         {
             return HoSoKhamBenhDAL.GetHoSoByTrangThai(trangThai);
         }
+        public static bool XoaHoSo(int maHoSo)
+        {
+            return HoSoKhamBenhDAL.XoaHoSo(maHoSo);
+        }
     }
 }
