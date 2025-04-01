@@ -56,7 +56,7 @@
             // DgvPhieuKham
             // 
             this.DgvPhieuKham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvPhieuKham.Location = new System.Drawing.Point(28, 18);
+            this.DgvPhieuKham.Location = new System.Drawing.Point(13, 14);
             this.DgvPhieuKham.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DgvPhieuKham.Name = "DgvPhieuKham";
             this.DgvPhieuKham.RowHeadersWidth = 62;
@@ -67,7 +67,7 @@
             // NutLapHS
             // 
             this.NutLapHS.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutLapHS.Location = new System.Drawing.Point(1042, 188);
+            this.NutLapHS.Location = new System.Drawing.Point(1027, 193);
             this.NutLapHS.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NutLapHS.Name = "NutLapHS";
             this.NutLapHS.Size = new System.Drawing.Size(198, 46);
@@ -89,7 +89,7 @@
             // NutXem
             // 
             this.NutXem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutXem.Location = new System.Drawing.Point(1042, 112);
+            this.NutXem.Location = new System.Drawing.Point(1027, 117);
             this.NutXem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NutXem.Name = "NutXem";
             this.NutXem.Size = new System.Drawing.Size(198, 66);
@@ -101,7 +101,7 @@
             // NutDonThuoc
             // 
             this.NutDonThuoc.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutDonThuoc.Location = new System.Drawing.Point(1042, 56);
+            this.NutDonThuoc.Location = new System.Drawing.Point(1027, 61);
             this.NutDonThuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NutDonThuoc.Name = "NutDonThuoc";
             this.NutDonThuoc.Size = new System.Drawing.Size(198, 46);
@@ -113,7 +113,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1148, 244);
+            this.button1.Location = new System.Drawing.Point(1133, 249);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 46);
@@ -125,7 +125,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1042, 300);
+            this.button2.Location = new System.Drawing.Point(1027, 305);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(198, 46);
@@ -158,7 +158,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1042, 244);
+            this.button3.Location = new System.Drawing.Point(1027, 249);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 46);
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 449);
+            this.ClientSize = new System.Drawing.Size(1234, 449);
             this.ControlBox = false;
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
