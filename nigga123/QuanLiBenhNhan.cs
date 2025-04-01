@@ -90,6 +90,12 @@ namespace nigga123
 
             // Kích hoạt lại sự kiện
             DgvBenhNhan.SelectionChanged += DgvBenhNhan_SelectionChanged;
+
+            DateSinh.Format = DateTimePickerFormat.Custom;
+            DateSinh.CustomFormat = "dd/MM/yyyy"; // Hiển thị dạng 01/04/2025
+            DateSinh.CalendarForeColor = Color.Blue;   // Màu chữ  
+            DateSinh.CalendarMonthBackground = Color.LightYellow; // Màu nền  
+            DateSinh.ShowUpDown = false; // Ẩn phần giờ phút  
         }
 
         private void NutThem_Click(object sender, EventArgs e)

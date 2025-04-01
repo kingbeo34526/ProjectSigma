@@ -74,7 +74,7 @@ namespace nigga123
             string thoiGianSuDungText = $"{thoiGianSuDung.Hours} giờ {thoiGianSuDung.Minutes} phút {thoiGianSuDung.Seconds} giây";
 
             // LblThongTin
-            LblThongTin.Text = $"🕒 {thoiGianHienTai} | ⏳ {thoiGianSuDungText}";
+            LblThongTin.Text = $"🕒 {thoiGianHienTai} | ⏳ {thoiGianSuDungText} | © 2025 Nhóm 1 - Dự án tốt nghiệp";
             LblThongTin.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
             LblThongTin.TextAlign = ContentAlignment.MiddleCenter;
             LblThongTin.AutoSize = false;

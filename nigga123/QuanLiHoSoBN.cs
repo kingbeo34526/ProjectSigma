@@ -26,6 +26,12 @@ namespace nigga123
             {
                 LoadHoSo(maHoSo.Value);
             }
+
+            DateHen.Format = DateTimePickerFormat.Custom;
+            DateHen.CustomFormat = "dd/MM/yyyy"; // Hiển thị dạng 01/04/2025
+            DateHen.CalendarForeColor = Color.Blue;   // Màu chữ  
+            DateHen.CalendarMonthBackground = Color.LightYellow; // Màu nền  
+            DateHen.ShowUpDown = false; // Ẩn phần giờ phút  
         }
         private void LoadComboBoxData()
         {

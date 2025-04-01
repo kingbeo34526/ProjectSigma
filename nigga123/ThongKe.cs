@@ -82,9 +82,24 @@ namespace nigga123
             DgvThuoc.DataSource = ThuocBUS.GetAllThuoc();
             TxtTSLT.Text = thuocBUS.GetTotalThuoc().ToString();
         }
+        private void DgvBN_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (DgvBN.Columns[e.ColumnIndex].Name == "GioiTinh" && e.Value != null)
+            {
+                // Kiểm tra nếu giá trị là null hoặc rỗng, không xử lý
+                if (e.Value == null || string.IsNullOrEmpty(e.Value.ToString()))
+                {
+                    e.Value = ""; // Giữ trống
+                    e.FormattingApplied = true;
+                    return;
+                }
+                e.Value = e.Value.ToString() == "1" ? "Nam" : "Nữ";
+                e.FormattingApplied = true;
+            }
+        }
         private void DgvThuoc_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (DgvThuoc.Columns[e.ColumnIndex].Name == "DonViThuoc") // Cột cần hiển thị đơn vị
+            if (DgvThuoc.Columns[e.ColumnIndex].Name == "DonViThuoc" && e.Value != null) // Cột cần hiển thị đơn vị
             {
                 if (e.Value != null)
                 {
@@ -202,17 +217,14 @@ namespace nigga123
                 XuatExcel(filePath, luaChon);
             }
         }
-        private void DgvBN_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (DgvBN.Columns[e.ColumnIndex].Name == "GioiTinh" && e.Value != null)
-            {
-                e.Value = e.Value.ToString() == "1" ? "Nam" : "Nữ";
-                e.FormattingApplied = true;
-            }
-        }
+
         private void NutThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void DgvThuoc_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false; 
         }
     }
 }
