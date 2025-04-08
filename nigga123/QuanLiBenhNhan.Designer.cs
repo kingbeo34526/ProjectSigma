@@ -48,6 +48,8 @@
             this.DateSinh = new System.Windows.Forms.DateTimePicker();
             this.NutLamMoi = new System.Windows.Forms.Button();
             this.DgvBenhNhan = new System.Windows.Forms.DataGridView();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvBenhNhan)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             // 
             this.RbNu.AutoSize = true;
             this.RbNu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RbNu.Location = new System.Drawing.Point(209, 127);
+            this.RbNu.Location = new System.Drawing.Point(160, 135);
             this.RbNu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RbNu.Name = "RbNu";
             this.RbNu.Size = new System.Drawing.Size(41, 19);
@@ -68,7 +70,7 @@
             // 
             this.RbNam.AutoSize = true;
             this.RbNam.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RbNam.Location = new System.Drawing.Point(150, 127);
+            this.RbNam.Location = new System.Drawing.Point(101, 135);
             this.RbNam.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RbNam.Name = "RbNam";
             this.RbNam.Size = new System.Drawing.Size(51, 19);
@@ -139,7 +141,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(330, 132);
+            this.label6.Location = new System.Drawing.Point(349, 105);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 15);
@@ -150,7 +152,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(84, 127);
+            this.label5.Location = new System.Drawing.Point(35, 137);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 15);
@@ -161,7 +163,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(365, 84);
+            this.label4.Location = new System.Drawing.Point(385, 69);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 15);
@@ -172,18 +174,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 84);
+            this.label2.Location = new System.Drawing.Point(53, 72);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 15);
+            this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 27;
-            this.label2.Text = "Số CMND/CCCD:";
+            this.label2.Text = "CCCD:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(77, 29);
+            this.label1.Location = new System.Drawing.Point(28, 39);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 15);
@@ -193,7 +195,7 @@
             // TxtDiaChi
             // 
             this.TxtDiaChi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDiaChi.Location = new System.Drawing.Point(419, 79);
+            this.TxtDiaChi.Location = new System.Drawing.Point(439, 64);
             this.TxtDiaChi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtDiaChi.Name = "TxtDiaChi";
             this.TxtDiaChi.Size = new System.Drawing.Size(199, 23);
@@ -202,25 +204,25 @@
             // TxtCCCD
             // 
             this.TxtCCCD.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCCCD.Location = new System.Drawing.Point(150, 79);
+            this.TxtCCCD.Location = new System.Drawing.Point(101, 66);
             this.TxtCCCD.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtCCCD.Name = "TxtCCCD";
-            this.TxtCCCD.Size = new System.Drawing.Size(148, 23);
+            this.TxtCCCD.Size = new System.Drawing.Size(209, 23);
             this.TxtCCCD.TabIndex = 23;
             // 
             // TxtHoVaTen
             // 
             this.TxtHoVaTen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtHoVaTen.Location = new System.Drawing.Point(150, 28);
+            this.TxtHoVaTen.Location = new System.Drawing.Point(101, 32);
             this.TxtHoVaTen.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtHoVaTen.Name = "TxtHoVaTen";
-            this.TxtHoVaTen.Size = new System.Drawing.Size(148, 23);
+            this.TxtHoVaTen.Size = new System.Drawing.Size(209, 23);
             this.TxtHoVaTen.TabIndex = 22;
             // 
             // TxtSDT
             // 
             this.TxtSDT.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSDT.Location = new System.Drawing.Point(420, 126);
+            this.TxtSDT.Location = new System.Drawing.Point(439, 99);
             this.TxtSDT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TxtSDT.Name = "TxtSDT";
             this.TxtSDT.Size = new System.Drawing.Size(198, 23);
@@ -230,7 +232,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(350, 28);
+            this.label3.Location = new System.Drawing.Point(369, 34);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 15);
@@ -241,7 +243,7 @@
             // 
             this.DateSinh.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateSinh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateSinh.Location = new System.Drawing.Point(420, 25);
+            this.DateSinh.Location = new System.Drawing.Point(439, 31);
             this.DateSinh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DateSinh.Name = "DateSinh";
             this.DateSinh.Size = new System.Drawing.Size(198, 23);
@@ -271,12 +273,34 @@
             this.DgvBenhNhan.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvBenhNhan_CellFormatting);
             this.DgvBenhNhan.SelectionChanged += new System.EventHandler(this.DgvBenhNhan_SelectionChanged);
             // 
+            // TxtEmail
+            // 
+            this.TxtEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtEmail.Location = new System.Drawing.Point(101, 99);
+            this.TxtEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(209, 23);
+            this.TxtEmail.TabIndex = 47;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(54, 102);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 15);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "Email:";
+            // 
             // QuanLiBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 454);
             this.ControlBox = false;
+            this.Controls.Add(this.TxtEmail);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.DgvBenhNhan);
             this.Controls.Add(this.NutLamMoi);
             this.Controls.Add(this.DateSinh);
@@ -331,5 +355,7 @@
         private System.Windows.Forms.DateTimePicker DateSinh;
         private System.Windows.Forms.Button NutLamMoi;
         private System.Windows.Forms.DataGridView DgvBenhNhan;
+        private System.Windows.Forms.TextBox TxtEmail;
+        private System.Windows.Forms.Label label7;
     }
 }

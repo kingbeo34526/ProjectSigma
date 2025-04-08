@@ -156,6 +156,7 @@ namespace DAL
             }
         }
 
+
         public static bool SuaNhanVien(NhanVienDTO nv)
         {
             string query = "UPDATE NhanVien SET Ten = @Ten, Email = @Email, PhanQuyen = @PhanQuyen WHERE MaNV = @MaNV";

@@ -57,6 +57,17 @@ namespace DAL
             SqlParameter[] parameters = { new SqlParameter("@MaDonThuoc", maDonThuoc) };
             DataProvider.ExecuteNonQuery(query, parameters);
         }
+        public static DataRow GetByMaHoSo(int maHoSo)
+        {
+            string query = "SELECT TOP 1 * FROM DonThuoc WHERE MaHoSo = @MaHoSo";
+            SqlParameter[] parameters = {
+                new SqlParameter("@MaHoSo", maHoSo)
+            };
 
+            DataTable dt = DataProvider.ExecuteQuery(query, parameters);
+            if (dt.Rows.Count > 0)
+                return dt.Rows[0];
+            return null;
+        }
     }
 }

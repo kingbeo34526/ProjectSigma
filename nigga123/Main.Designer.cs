@@ -208,7 +208,6 @@ namespace nigga123
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip2;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Màn hình chính";

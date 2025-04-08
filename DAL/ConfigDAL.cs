@@ -36,7 +36,7 @@ namespace DAL
                 {
                     ["Database"] = new JObject
                     {
-                        ["ConnectionString"] = "Data Source=N/A;Initial Catalog=N/A;Integrated Security=True"
+                        ["ConnectionString"] = "Data Source=N/A;Initial Catalog=N/A;User Id=N/A;Password=N/A"
                     }
                 };
 

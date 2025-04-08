@@ -41,6 +41,7 @@ namespace BUS
             }
             return false;
         }
+
         public bool DangNhap(string tenDangNhap, string matKhau)
         {
             string matKhauDaLuu = nvDAL.LayMatKhau(tenDangNhap);
@@ -106,7 +107,6 @@ namespace BUS
             }
             return false;
         }
-
         public bool DoiMatKhau(string tenDangNhap, string matKhauCu, string matKhauMoi)
         {
             string matKhauDaLuu = nvDAL.LayMatKhau(tenDangNhap);

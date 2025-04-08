@@ -66,8 +66,8 @@ namespace DAL
         }
         public static bool ThemBenhNhan(BenhNhanDTO benhNhan)
         {
-            string query = "INSERT INTO BenhNhan (HoTen, NgaySinh, GioiTinh, DiaChi, SoDienThoai, CanCuocCongDan) " +
-                           "VALUES (@HoTen, @NgaySinh, @GioiTinh, @DiaChi, @SoDienThoai, @CCCD)";
+            string query = "INSERT INTO BenhNhan (HoTen, NgaySinh, GioiTinh, DiaChi, SoDienThoai, CanCuocCongDan, Email) " +
+                           "VALUES (@HoTen, @NgaySinh, @GioiTinh, @DiaChi, @SoDienThoai, @CCCD, @Email)";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@HoTen", benhNhan.HoTen),
@@ -75,7 +75,8 @@ namespace DAL
                 new SqlParameter("@GioiTinh", benhNhan.GioiTinh),
                 new SqlParameter("@DiaChi", benhNhan.DiaChi),
                 new SqlParameter("@SoDienThoai", benhNhan.SoDienThoai),
-                new SqlParameter("@CCCD", benhNhan.CanCuocCongDan)
+                new SqlParameter("@CCCD", benhNhan.CanCuocCongDan),
+                new SqlParameter("@Email", benhNhan.Email)
             };
             return DataProvider.ExecuteNonQuery(query, parameters) > 0;
         }
@@ -83,7 +84,7 @@ namespace DAL
         public static bool SuaBenhNhan(BenhNhanDTO benhNhan)
         {
             string query = "UPDATE BenhNhan SET HoTen = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, " +
-                           "DiaChi = @DiaChi, SoDienThoai = @SoDienThoai, CanCuocCongDan = @CCCD WHERE MaBenhNhan = @MaBenhNhan";
+                           "DiaChi = @DiaChi, SoDienThoai = @SoDienThoai, CanCuocCongDan = @CCCD, Email = @Email WHERE MaBenhNhan = @MaBenhNhan";
             SqlParameter[] parameters =
             {
                 new SqlParameter("@MaBenhNhan", benhNhan.MaBenhNhan),
@@ -92,7 +93,8 @@ namespace DAL
                 new SqlParameter("@GioiTinh", benhNhan.GioiTinh),
                 new SqlParameter("@DiaChi", benhNhan.DiaChi),
                 new SqlParameter("@SoDienThoai", benhNhan.SoDienThoai),
-                new SqlParameter("@CCCD", benhNhan.CanCuocCongDan)
+                new SqlParameter("@CCCD", benhNhan.CanCuocCongDan),
+                new SqlParameter("@Email", benhNhan.Email)
             };
             return DataProvider.ExecuteNonQuery(query, parameters) > 0;
         }
@@ -117,6 +119,38 @@ namespace DAL
             object result = DataProvider.ExecuteScalar(query, parameters);
             return result?.ToString() ?? "";
         }
+        public static string GetEmailByMaHoSo(int maHoSo)
+        {
+            string query = @"
+            SELECT b.Email 
+            FROM BenhNhan b
+            INNER JOIN HoSoKhamBenh hskb ON b.MaBenhNhan = hskb.MaBenhNhan
+            WHERE hskb.MaHoSo = @MaHoSo";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaHoSo", maHoSo)
+            };
+
+            var result = DataProvider.ExecuteScalar(query, parameters);
+            return result?.ToString();
+        }
+        public static string GetTenBenhNhanByMaHoSo(int maHoSo)
+        {
+            string query = @"SELECT bn.HoTen 
+                     FROM BenhNhan bn 
+                     INNER JOIN HoSoKhamBenh hs ON bn.MaBenhNhan = hs.MaBenhNhan 
+                     WHERE hs.MaHoSo = @MaHoSo";
+
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@MaHoSo", SqlDbType.Int) { Value = maHoSo }
+            };
+
+            object result = DataProvider.ExecuteScalar(query, parameters);
+            return result != null ? result.ToString() : "Không xác định";
+        }
+
         public static bool KiemTraTonTaiTrongPhieuKham(int maBenhNhan)
         {
             string query = "SELECT COUNT(*) FROM HoSoKhamBenh WHERE MaBenhNhan = @MaBenhNhan";

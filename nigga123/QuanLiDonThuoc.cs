@@ -57,6 +57,18 @@ namespace nigga123
 
         private void DgvDonThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một đơn thuốc hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            object value = DgvDonThuoc.Rows[e.RowIndex].Cells["MaDonThuoc"].Value;
+
+            if (value == null || value == DBNull.Value)
+            {
+                MessageBox.Show("Dữ liệu không hợp lệ. Vui lòng chọn một đơn thuốc khác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (e.RowIndex >= 0)
             {
                 int maDonThuoc = Convert.ToInt32(DgvDonThuoc.Rows[e.RowIndex].Cells["MaDonThuoc"].Value);

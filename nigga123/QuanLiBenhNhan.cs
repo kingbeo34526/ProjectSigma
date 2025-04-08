@@ -64,6 +64,13 @@ namespace nigga123
                 MessageBox.Show("Ngày sinh không hợp lệ! Phải nhỏ hơn ngày hiện tại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            if (string.IsNullOrWhiteSpace(TxtEmail.Text) || !Regex.IsMatch(TxtEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Email không hợp lệ! Vui lòng nhập đúng định dạng.", "Cảnh báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             return true;
         }
 
@@ -81,8 +88,9 @@ namespace nigga123
             DgvBenhNhan.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
             DgvBenhNhan.Columns["DiaChi"].HeaderText = "Địa Chỉ";
             DgvBenhNhan.Columns["SoDienThoai"].HeaderText = "Số Điện Thoại";
-            DgvBenhNhan.Columns["CanCuocCongDan"].HeaderText = "CMND/CCCD";
+            DgvBenhNhan.Columns["CanCuocCongDan"].HeaderText = "CCCD";
             DgvBenhNhan.Columns["GioiTinh"].HeaderText = "Giới tính";
+            DgvBenhNhan.Columns["Email"].HeaderText = "Email";
 
             // Bỏ chọn dòng đầu tiên
             DgvBenhNhan.ClearSelection();
@@ -108,23 +116,20 @@ namespace nigga123
                 GioiTinh = RbNam.Checked ? 1 : 2,
                 DiaChi = TxtDiaChi.Text,
                 SoDienThoai = TxtSDT.Text,
-                CanCuocCongDan = TxtCCCD.Text
+                CanCuocCongDan = TxtCCCD.Text,
+                Email = TxtEmail.Text
             };
 
-            // Kiểm tra trùng CCCD
             if (BenhNhanBUS.KiemTraCCCDTonTai(bn.CanCuocCongDan))
             {
                 MessageBox.Show("Số CCCD này đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Kiểm tra trùng SĐT
             if (BenhNhanBUS.KiemTraSDTTonTai(bn.SoDienThoai))
             {
                 MessageBox.Show("Số điện thoại này đã tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             if (BenhNhanBUS.ThemBenhNhan(bn))
             {
                 MessageBox.Show("Thêm bệnh nhân thành công!");
@@ -155,8 +160,10 @@ namespace nigga123
                         GioiTinh = RbNam.Checked ? 1 : 2,
                         DiaChi = TxtDiaChi.Text,
                         SoDienThoai = TxtSDT.Text,
-                        CanCuocCongDan = TxtCCCD.Text
+                        CanCuocCongDan = TxtCCCD.Text,
+                        Email = TxtEmail.Text
                     };
+
 
                     if (BenhNhanBUS.SuaBenhNhan(bn))
                     {
@@ -232,6 +239,7 @@ namespace nigga123
             TxtDiaChi.Text = row.Cells["DiaChi"].Value?.ToString();
             TxtSDT.Text = row.Cells["SoDienThoai"].Value?.ToString();
             TxtCCCD.Text = row.Cells["CanCuocCongDan"].Value?.ToString();
+            TxtEmail.Text = row.Cells["Email"].Value?.ToString();
         }
 
         private void NutLamMoi_Click(object sender, EventArgs e)
@@ -245,6 +253,7 @@ namespace nigga123
             TxtDiaChi.Clear();
             TxtCCCD.Clear();
             TxtTimKiem.Clear();
+            TxtEmail.Clear();
 
             // Đặt lại ngày sinh về ngày hiện tại
             DateSinh.Value = DateTime.Now;

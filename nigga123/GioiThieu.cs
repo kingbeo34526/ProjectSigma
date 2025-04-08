@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,19 +21,24 @@ namespace nigga123
         }
         private void LoadGioiThieu()
         {
-            string html = @"
+            string imgPath = Path.Combine(Application.StartupPath, "logo.png");
+            string imgUrl = new Uri(imgPath).AbsoluteUri;
+
+            string html = $@"
             <html>
             <head>
                 <style>
-                    body { font-family: Arial, sans-serif; text-align: center; padding: 20px; color: #333; }
-                    h1 { color: #007bff; }
-                    h2 { color: #28a745; }
-                    p { font-size: 16px; line-height: 1.6; }
-                    .container { max-width: 600px; margin: auto; padding: 20px; border: 2px solid #007bff; border-radius: 10px; background: #f9f9f9; }
+                    body {{ font-family: Arial, sans-serif; text-align: center; padding: 20px; color: #333; }}
+                    h1 {{ color: #007bff; }}
+                    h2 {{ color: #28a745; }}
+                    p {{ font-size: 16px; line-height: 1.6; }}
+                    .container {{ max-width: 600px; margin: auto; padding: 20px; border: 2px solid #007bff; border-radius: 10px; background: #f9f9f9; }}
+                    img.logo {{ width: 200px; margin-bottom: 20px; }}
                 </style>
             </head>
             <body>
                 <div class='container'>
+                    <img src='{imgUrl}' class='logo' />
                     <h1>Hệ Thống Quản Lý Phòng Khám Sigma</h1>
                     <p>Chào mừng bạn đến với hệ thống quản lý phòng khám <strong>Sigma</strong>.</p>
                     <p>Hệ thống giúp bạn theo dõi bệnh nhân, quản lý đơn thuốc và tối ưu hóa quy trình làm việc.</p>
@@ -42,8 +48,10 @@ namespace nigga123
                 </div>
             </body>
             </html>";
+
             webBrowser1.DocumentText = html;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

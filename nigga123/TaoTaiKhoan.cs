@@ -33,10 +33,6 @@ namespace nigga123
                     return 3; // Mặc định là Lễ tân nếu có lỗi
             }
         }
-        private bool KiemTraChuoiHopLe(string input)
-        {
-            return Regex.IsMatch(input, "^[a-zA-Z0-9 ]+$");
-        }
         private bool KiemTraEmailHopLe(string email)
         {
             return Regex.IsMatch(email, @"^[^\s@]+@[^\s@]+\.[^\s@]+$");
@@ -48,11 +44,6 @@ namespace nigga123
             string tenDangNhap = BoxUsername.Text;
             string email = BoxEmail.Text;
             int phanQuyen = ChuyenDoiPhanQuyen(CbPhanQuyen.SelectedItem.ToString()); // Chuyển từ chữ sang số
-            if (string.IsNullOrWhiteSpace(ten) || !KiemTraChuoiHopLe(ten))
-            {
-                MessageBox.Show("Tên không hợp lệ! Vui lòng nhập lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             if (string.IsNullOrWhiteSpace(tenDangNhap) || tenDangNhap.Length < 5)
             {

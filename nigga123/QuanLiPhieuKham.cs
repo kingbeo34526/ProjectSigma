@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BUS;
 using System.Windows.Forms;
+
 //using PhongKham;
 
 namespace nigga123
@@ -22,6 +23,7 @@ namespace nigga123
             LoadComboBoxTrangThai();
             NutDonThuoc.Enabled = false; 
             NutXem.Enabled = false;
+            button4.Enabled = false; 
             DgvPhieuKham.CellFormatting += DgvPhieuKham_CellFormatting;
             PhanQuyenNguoiDung = phanQuyen; // Nhận quyền từ form đăng nhập hoặc main
         }
@@ -63,6 +65,7 @@ namespace nigga123
             // Kiểm tra có dòng nào được chọn không
             NutDonThuoc.Enabled = DgvPhieuKham.SelectedRows.Count > 0;
             NutXem.Enabled = DgvPhieuKham.SelectedRows.Count > 0;
+            button4.Enabled = DgvPhieuKham.SelectedRows.Count > 0; // Bật/tắt nút gửi email
         }
         private void DgvPhieuKham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -96,7 +99,7 @@ namespace nigga123
 
         private void NutDonThuoc_Click(object sender, EventArgs e)
         {
-            if (PhanQuyenNguoiDung != 1 && PhanQuyenNguoiDung != 2) // Nếu không phải lễ tân
+            if (PhanQuyenNguoiDung != 1 && PhanQuyenNguoiDung != 2)
             {
                 MessageBox.Show("Bạn không có quyền truy cập vào đơn thuốc!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -182,6 +185,26 @@ namespace nigga123
             else
             {
                 MessageBox.Show("Vui lòng chọn một hồ sơ để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (PhanQuyenNguoiDung != 1 && PhanQuyenNguoiDung != 2)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào đơn thuốc!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (DgvPhieuKham.SelectedRows.Count > 0)
+            {
+                int maHoSo = Convert.ToInt32(DgvPhieuKham.SelectedRows[0].Cells["MaHoSo"].Value);
+                GuiMail formEmail = new GuiMail(maHoSo);
+                formEmail.MdiParent = this.MdiParent;
+                formEmail.Show();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hồ sơ trước!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

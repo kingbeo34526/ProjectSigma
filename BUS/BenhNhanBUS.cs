@@ -3,6 +3,7 @@ using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -68,10 +69,17 @@ namespace BUS
         {
             return BenhNhanDAL.KiemTraCCCDTonTai(cccd);
         }
-
         public static bool KiemTraSDTTonTai(string sdt)
         {
             return BenhNhanDAL.KiemTraSDTTonTai(sdt);
+        }        
+        public static string GetEmailByMaHoSo(int MaHoSo)
+        {
+            return BenhNhanDAL.GetEmailByMaHoSo(MaHoSo);
+        }
+        public static string GetTenBenhNhanByMaHoSo(int maHoSo)
+        {
+            return BenhNhanDAL.GetTenBenhNhanByMaHoSo(maHoSo);
         }
     }
 }

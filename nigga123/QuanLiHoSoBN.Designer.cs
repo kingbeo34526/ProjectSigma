@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.TxtTrieuChung = new System.Windows.Forms.TextBox();
-            this.TxtKetQua = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.NutThem = new System.Windows.Forms.Button();
             this.NutThoat = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.Lbl_mahoso = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.LblBN = new System.Windows.Forms.Label();
+            this.TxtKetQua = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TxtTrieuChung
@@ -55,14 +55,6 @@
             this.TxtTrieuChung.Name = "TxtTrieuChung";
             this.TxtTrieuChung.Size = new System.Drawing.Size(236, 23);
             this.TxtTrieuChung.TabIndex = 2;
-            // 
-            // TxtKetQua
-            // 
-            this.TxtKetQua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtKetQua.Location = new System.Drawing.Point(476, 129);
-            this.TxtKetQua.Name = "TxtKetQua";
-            this.TxtKetQua.Size = new System.Drawing.Size(237, 23);
-            this.TxtKetQua.TabIndex = 3;
             // 
             // label1
             // 
@@ -77,7 +69,7 @@
             // NutThem
             // 
             this.NutThem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutThem.Location = new System.Drawing.Point(515, 163);
+            this.NutThem.Location = new System.Drawing.Point(19, 167);
             this.NutThem.Name = "NutThem";
             this.NutThem.Size = new System.Drawing.Size(96, 25);
             this.NutThem.TabIndex = 14;
@@ -88,7 +80,7 @@
             // NutThoat
             // 
             this.NutThoat.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NutThoat.Location = new System.Drawing.Point(617, 163);
+            this.NutThoat.Location = new System.Drawing.Point(121, 167);
             this.NutThoat.Name = "NutThoat";
             this.NutThoat.Size = new System.Drawing.Size(96, 25);
             this.NutThoat.TabIndex = 17;
@@ -221,12 +213,21 @@
             this.LblBN.TabIndex = 39;
             this.LblBN.Text = "Tên sẽ hiện ở đây";
             // 
+            // TxtKetQua
+            // 
+            this.TxtKetQua.Location = new System.Drawing.Point(477, 132);
+            this.TxtKetQua.Multiline = true;
+            this.TxtKetQua.Name = "TxtKetQua";
+            this.TxtKetQua.Size = new System.Drawing.Size(236, 49);
+            this.TxtKetQua.TabIndex = 40;
+            // 
             // QuanLiHoSoBN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(742, 200);
+            this.ClientSize = new System.Drawing.Size(742, 202);
             this.ControlBox = false;
+            this.Controls.Add(this.TxtKetQua);
             this.Controls.Add(this.LblBN);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Lbl_mahoso);
@@ -243,7 +244,6 @@
             this.Controls.Add(this.NutThoat);
             this.Controls.Add(this.NutThem);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.TxtKetQua);
             this.Controls.Add(this.TxtTrieuChung);
             this.Name = "QuanLiHoSoBN";
             this.Text = "Hồ sơ khám bệnh";
@@ -254,7 +254,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox TxtTrieuChung;
-        private System.Windows.Forms.TextBox TxtKetQua;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button NutThem;
         private System.Windows.Forms.Button NutThoat;
@@ -271,6 +270,7 @@
         private System.Windows.Forms.Label Lbl_mahoso;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label LblBN;
+        private System.Windows.Forms.TextBox TxtKetQua;
     }
 }
 

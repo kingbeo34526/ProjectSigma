@@ -37,5 +37,19 @@ namespace DAL
 
             DataProvider.ExecuteNonQuery(query, parameters);
         }
+        public static DataTable GetByMaDonThuoc(int maDonThuoc)
+        {
+            string query = @"
+                SELECT ct.MaThuoc, t.TenThuoc, t.DonViThuoc, ct.SoLuong
+                FROM ChiTietDonThuoc ct
+                INNER JOIN Thuoc t ON ct.MaThuoc = t.MaThuoc
+                WHERE ct.MaDonThuoc = @MaDonThuoc";
+
+            SqlParameter[] parameters = {
+                new SqlParameter("@MaDonThuoc", maDonThuoc)
+            };
+
+            return DataProvider.ExecuteQuery(query, parameters);
+        }
     }
 }

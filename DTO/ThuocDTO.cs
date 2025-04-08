@@ -14,6 +14,7 @@ namespace DTO
         public int SoLuong { get; set; }
         public decimal Gia { get; set; }
 
+
         public ThuocDTO(int maThuoc, string tenThuoc, int donViThuoc, int soLuong, decimal gia)
         {
             MaThuoc = maThuoc;
